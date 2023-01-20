@@ -1,9 +1,9 @@
-import '../styles/App.css'
+import '../../styles/Header.css'
 
 function Header () {
   return (
-    <div>
-      <img className='logo' src="../assets/logo.svg" alt="logo" />
+    <div className='header'>
+      <img className='logo' src="../../assets/logo.svg" alt="logo" />
       <nav>
         <ul>
           <li>Acceuil</li>

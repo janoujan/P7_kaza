@@ -1,0 +1,10 @@
+.banner {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 95%;
+    height: 223px;
+    top: 171px;
+    border: 4px solid black;
+    border-radius: 25px;
+}

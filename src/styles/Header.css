@@ -1,0 +1,27 @@
+.header {
+    display: flex;
+    border: 2px solid black;
+    justify-content: space-between;
+}
+
+nav {
+    border: 1px solid red;
+    text-decoration: none;
+}
+
+nav ul {
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: row;
+    color: #FF6060;
+
+
+}
+
+nav ul li {
+    display: flex;
+    border: 1px solid green;
+    justify-content: center;
+    margin: 3%;
+    list-style: none;
+}
