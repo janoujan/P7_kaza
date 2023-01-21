@@ -1,17 +1,19 @@
+import {Link} from 'react-router-dom'
 import '../../styles/Header.css'
 
-function Header () {
+export default function Header() {
   return (
-    <div className='header'>
-      <img className='logo' src="../../assets/logo.svg" alt="logo" />
+    <div className="header">
+      <img className="logo" src="../../assets/logo.svg" alt="logo" />
       <nav>
-        <ul>
-          <li>Acceuil</li>
-          <li>A Propos</li>
-        </ul>
+        <li>
+          <Link to={`/`}>Accueil</Link>
+        </li>
+        <li>
+          <Link to={`/APropos`}>APropos</Link>
+        </li>
       </nav>
     </div>
   )
 }
 
-export default Header

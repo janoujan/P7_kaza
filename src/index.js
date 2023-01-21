@@ -1,15 +1,30 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import reportWebVitals from './reportWebVitals'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-import Header from '../src/components/Header/index'
-import Banner from './components/Banner'
+import Home from './pages/Home'
+import ErrorPage from './pages/Error'
+import APropos from './pages/APropos'
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: 'APropos',
+        element: <APropos />,
+        errorElement: <ErrorPage />,
+      },
+    ],
+  },
+])
+
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Header />
-    <Banner />
+    <RouterProvider router={router} />
   </React.StrictMode>
 )
 
