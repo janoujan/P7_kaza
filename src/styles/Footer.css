@@ -1,4 +1,9 @@
 .footer {
+    position: relative;
+    width: 93%;
+    margin-left: 25px;
+    top: 100px;
     height: 200px;
-    background-color: darksalmon;
+    background-color: #000000;
+    color: white;
 }

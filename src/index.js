@@ -10,11 +10,13 @@ import {
 import Home from './pages/Home'
 import About from './pages/About'
 import ErrorPage from './pages/Error'
+import Location from './pages/Location'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route element={<Home />} path='/' errorElement={<ErrorPage />} />
+      <Route element={<Location />} path='/:locationId' errorElement={<ErrorPage />} />
       <Route element={<About />} path='/about' errorElement={<ErrorPage />} />
     </>
   )
