@@ -1,27 +1,44 @@
 .header {
     display: flex;
-    border: 2px solid black;
-    justify-content: space-between;
+    height: 80px;
+    margin-left: 40px;
 }
 
-nav {
-    border: 1px solid red;
+.logo {
+    width: 180px;
+    height: 80px;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.header-nav {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+    width: 100%;
+   
+}
+
+.header-nav li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    list-style: none;
+}
+
+.header-nav a {
+    color: #FF6060;
+    font-family: 'Montserrat'; 
+    font-size: large;   
     text-decoration: none;
 }
 
-nav ul {
-    border: 1px solid blue;
-    display: flex;
-    flex-direction: row;
-    color: #FF6060;
-
-
+.header-nav a:hover {
+    text-decoration: underline;
 }
 
-nav ul li {
-    display: flex;
-    border: 1px solid green;
-    justify-content: center;
-    margin: 3%;
-    list-style: none;
+.header-nav a:focus {
+ text-decoration: underline;
 }
