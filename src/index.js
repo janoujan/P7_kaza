@@ -4,8 +4,10 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
+  Routes,
   RouterProvider
 } from 'react-router-dom'
+import { createGlobalStyle } from 'styled-components'
 
 import Home from './pages/Home'
 import About from './pages/About'
@@ -15,8 +17,13 @@ import Location from './pages/Location'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
+      <Route element={<ErrorPage />} path='*' />
       <Route element={<Home />} path='/' errorElement={<ErrorPage />} />
-      <Route element={<Location />} path='/:locationId' errorElement={<ErrorPage />} />
+      <Route
+        element={<Location />}
+        path='/:locationId'
+        errorElement={<ErrorPage />}
+      />
       <Route element={<About />} path='/about' errorElement={<ErrorPage />} />
     </>
   )

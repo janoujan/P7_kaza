@@ -1,17 +1,23 @@
-import '../../styles/Gallery.css'
-import {NavLink, useParams } from 'react-router-dom'
+import styled from 'styled-components'
+import Card from '../Card'
 
-export default function Gallery({ cover, title }) {
-  let { locationId } = useParams()
-  
+const CardContainer = styled.div`
+  display: flex;
+  position: relative;
+  width: 93%;
+  margin-left: 25px;
+  height: 600px;
+  top: 70px;
+  background-color: grey;
+  border-radius: 25px;
+`
+
+export default function Gallery() {
   return (
-    <div className="gallery">
-      <NavLink to={`/:${locationId}`} className="card">
-        <figure>
-          <img src={cover} alt={title} />
-          <figcaption>{title}</figcaption>
-        </figure>
-      </NavLink>
-    </div>
+    <>
+      <CardContainer>
+        <Card />
+      </CardContainer>
+    </>
   )
 }

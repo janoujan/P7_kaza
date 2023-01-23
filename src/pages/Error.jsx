@@ -1,6 +1,22 @@
 import { Link, useRouteError } from 'react-router-dom'
+import styled from 'styled-components'
+
 import Header from '../components/Header'
-import '../styles/ErrorPage.css'
+
+const ErrorPageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ff6060;
+`
+
+const ErrorPageTitle = styled.h1`
+  font-size: 12rem;
+`
+
+const LinkToHome = styled(Link)`
+  color: #FF6060;
+`
 
 export default function ErrorPage() {
   const error = useRouteError()
@@ -9,14 +25,14 @@ export default function ErrorPage() {
   return (
     <>
       <Header />
-      <div id="error-page">
-        <h1 className='errorTitle'>404</h1>
+      <ErrorPageContainer>
+        <ErrorPageTitle>404</ErrorPageTitle>
         <h2 className='errorSubtitle'>Oups! La page que vous demandez n'existe pas.</h2>
-        <Link to={'/'} className='errorLink'>Retourner sur la page d'accueil</Link>
+        <LinkToHome to={'/'} className='errorLink'>Retourner sur la page d'accueil</LinkToHome>
         <p>
-          <i>{error.statusText || error.message}</i>
+          <i>{error ? error.statusText || error.message : ''}</i>
         </p>
-      </div>
+      </ErrorPageContainer>
     </>
   )
 }
