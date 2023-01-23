@@ -1,4 +1,6 @@
-import {NavLink, useParams } from 'react-router-dom'
+import { useFetch } from '../../utils/hooks'
+import { useEffect } from 'react'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 const StyledLink = styled(NavLink)`
@@ -14,27 +16,32 @@ const StyledLink = styled(NavLink)`
   );
 `
 
-// try {
-//   const response = fetch('../data/logements.json')
-//   console.log(response)
-//   const locations = response.json()
-//   console.log(locations)
-//   // return await locations
-// } catch (error) {
-//   throw new Error(error)
-// }    
+export default function Card({ cover, title, id }) {
+  // const logements = useFetch(`logements.json`)
+  // console.log(logements.data.Array)
 
-export default function Card({ cover, title }) {
-   // console.log(GetDataAsLocations())
-   let { locationId } = useParams()
-    return (
-      <>
-        <StyledLink to={`/:${locationId}`} className="Card_link">
-          <figure className='Card_figure'>
-            <img src={cover} alt={title} />
-            <figcaption>{title}</figcaption>
-          </figure>
-        </StyledLink>
-      </>
-    )
+  useEffect(() => {
+    fetch(`logements.json`)
+      .then((logements) => logements.json())
+      .then((logements) => {
+        logements.map((logement) => {
+          console.log(logement.cover)
+          let cover = logement.cover
+          let id = logement.id
+          let title = logement.title
+          return { title , cover, id} 
+        })
+      })
+      .catch((error) => console.log(error))
+  })
+  return (
+    <>
+      <StyledLink to={`/:${id}`}>
+        <figure>
+          <img src={cover} alt={title} />
+          <figcaption>{title}</figcaption>
+        </figure>
+      </StyledLink>
+    </>
+  )
 }

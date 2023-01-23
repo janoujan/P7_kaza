@@ -4,10 +4,8 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
-  Routes,
   RouterProvider
 } from 'react-router-dom'
-import { createGlobalStyle } from 'styled-components'
 
 import Home from './pages/Home'
 import About from './pages/About'
