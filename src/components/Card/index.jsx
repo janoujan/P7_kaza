@@ -25,7 +25,7 @@ export default function Card({ cover, title, id }) {
       .then((logements) => logements.json())
       .then((logements) => {
         logements.map((logement) => {
-          console.log(logement.cover)
+          // console.log(logement.cover)
           let cover = logement.cover
           let id = logement.id
           let title = logement.title
