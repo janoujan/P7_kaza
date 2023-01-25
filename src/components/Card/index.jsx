@@ -20,28 +20,26 @@ export default function Card({ cover, title, id }) {
   // const logements = useFetch(`logements.json`)
   // console.log(logements.data.Array)
 
-  useEffect(() => {
-    fetch(`logements.json`)
-      .then((logements) => logements.json())
-      .then((logements) => {
-        logements.map((logement) => {
-          // console.log(logement.cover)
-          let cover = logement.cover
-          let id = logement.id
-          let title = logement.title
-          return { title , cover, id} 
-        })
-      })
-      .catch((error) => console.log(error))
-  })
   return (
     <>
-      <StyledLink to={`/:${id}`}>
-        <figure>
-          <img src={cover} alt={title} />
-          <figcaption>{title}</figcaption>
-        </figure>
-      </StyledLink>
+      useEffect(() => {
+      fetch(`logements.json`)
+        .then((logements) => logements.json())
+        .then((logements) => {
+            
+            return (
+              <StyledLink to={`/:${logements.id}`}>
+                <figure>
+                  <img src={logements.cover} alt={logements.title} />
+                  <figcaption>{logements.title}</figcaption>
+                </figure>
+              </StyledLink>
+            )
+          
+        })
+        .catch((error) => console.log(error))}
+
+     ,[])
     </>
   )
 }
