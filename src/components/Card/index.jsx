@@ -1,9 +1,6 @@
-import { useFetch } from '../../utils/hooks'
-import { useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
-import styled from 'styled-components'
+import styled from "styled-components"
 
-const StyledLink = styled(NavLink)`
+const CardFigure = styled.figure`
   border: 1px solid black;
   width: 25%;
   height: 220px;
@@ -15,31 +12,24 @@ const StyledLink = styled(NavLink)`
     rgba(0, 0, 0, 0.5) 100%
   );
 `
+const CardContainer = styled.div`
+  display: flex;
+  position: relative;
+  width: 93%;
+  margin-left: 25px;
+  height: 600px;
+  top: 70px;
+  background-color: grey;
+  border-radius: 25px;
+`
 
-export default function Card({ cover, title, id }) {
-  // const logements = useFetch(`logements.json`)
-  // console.log(logements.data.Array)
-
+export default function Card(logement) {
   return (
-    <>
-      useEffect(() => {
-      fetch(`logements.json`)
-        .then((logements) => logements.json())
-        .then((logements) => {
-            
-            return (
-              <StyledLink to={`/:${logements.id}`}>
-                <figure>
-                  <img src={logements.cover} alt={logements.title} />
-                  <figcaption>{logements.title}</figcaption>
-                </figure>
-              </StyledLink>
-            )
-          
-        })
-        .catch((error) => console.log(error))}
-
-     ,[])
-    </>
+    <CardContainer>
+      <CardFigure>
+        <img src={logement.cover} alt={logement.title} />
+        <figcaption>{logement.title}</figcaption>
+      </CardFigure>
+    </CardContainer>
   )
 }
