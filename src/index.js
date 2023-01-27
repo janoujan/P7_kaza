@@ -19,7 +19,7 @@ const router = createBrowserRouter(
       <Route element={<Home />} path='/' errorElement={<ErrorPage />} />
       <Route
         element={<Location />}
-        path='/:locationId'
+        path='/location/:id'
         errorElement={<ErrorPage />}
       />
       <Route element={<About />} path='/about' errorElement={<ErrorPage />} />
