@@ -4,7 +4,7 @@ const BannerContainer = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
-  height: 225px;
+  height: 223px;
   width: 93%;
   margin-left: 25px;
   top: 40px;

@@ -1,29 +1,27 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import colors from '../../utils/style/colors'
 
 import Card from '../Card'
 
 const GalleryContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
   position: relative;
   width: 93%;
   margin-left: 25px;
   height: fit-content;
   top: 70px;
-  background-color: grey;
+  background-color: ${colors.secondary};
   border-radius: 25px;
 `
 
 const GalleryUl = styled.ul`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-items: center;
-  background-color: $color-tertiary;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: ${colors.secondary};
   padding: 32px 16px;
   border-radius: 25px;
-  max-width: 1240px;
 `
 
 export default function Gallery() {

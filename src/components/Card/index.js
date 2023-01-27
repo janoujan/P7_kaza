@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
+import colors from '../../utils/style/colors'
 
 const CardList = styled.li`
   list-style: none;
-  display: flex;
+  
 `
 
 const CardFigure = styled.figure`
@@ -44,15 +45,15 @@ const CardImage = styled.img`
 const CardCaption = styled.figcaption`
   position: absolute;
   font-weight: 500;
+  font-family: 'Montserrat', arial, verdana;
   bottom: 15px;
   margin-left: 16px;
   margin-right: 10px;
   font-size: 18px;
-  color: #ffffff;
+  color: ${colors.tertary};
 `
 
 export default function Card ({ location }) {
-  console.log(location)
   return (
     <CardList>
       <NavLink key={location.id} to={`/location/:${location.id
