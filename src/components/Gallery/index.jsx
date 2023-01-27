@@ -18,7 +18,7 @@ const GalleryContainer = styled.div`
 const GalleryUl = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   background-color: ${colors.secondary};
   padding: 32px 16px;
   border-radius: 25px;

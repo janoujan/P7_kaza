@@ -19,18 +19,23 @@ const HeaderLogo = styled.img`
 const HeaderNav = styled.nav`
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   margin-right: 20px;
   width: 100%;
 `
 
 const StyledLink = styled(NavLink)`
   color: ${colors.primary};
-  font-size: large;
   text-decoration: none;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 142.6%;
+
   &:hover,
   &:focus,
-  &:active
-   {
+  &:active {
     text-decoration: underline;
   }
 `

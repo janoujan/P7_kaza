@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import colors from "../../utils/style/colors"
 
 const BannerContainer = styled.div`
   position: relative;
@@ -23,10 +24,15 @@ const BannerImage = styled.img`
 
 const BannerText = styled.h1`
   position: absolute;
-  font-size: 48px;
+  margin: auto;
+  text-align: center;
+  top: 35%;
+  font-family: 'Montserrat';
+  font-style: normal;
   font-weight: 500;
-  height: 68px;
-  color: #fff;
+  font-size: 48px;
+  line-height: 68px;
+  color: ${colors.secondary};
 `
 
 export function Banner({ image, alt, text }) {
