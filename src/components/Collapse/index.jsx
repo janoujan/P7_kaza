@@ -5,14 +5,14 @@ import arrowUp from '../../assets/dropdown_open.svg'
 import colors from '../../utils/style/colors'
 
 const CollapseContainer = styled.div`
-  border: 1px solid black;
   position: relative;
   width: 73%;
   top: 70px;
   margin: auto;
+  margin-bottom: 20px;
 `
 
-const TitleContainer = styled.div`
+const Button = styled.div`
   display: flex;
   justify-content: space-between;
   padding-inline: 3%;
@@ -45,23 +45,31 @@ const Text = styled.p`
 
   margin: 0px;
   padding: 20px;
+  border-radius: 5px;
   color: ${colors.primary};
   background-color: ${colors.secondary};
 `
 
 const Arrow = styled.img`
-    width: 30px;
+  width: 30px;
 `
 
 export default function Collapse({ title, text }) {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(true)
 
-  return (
+  return isOpen ? (
     <CollapseContainer>
-      <TitleContainer>
+      <Button onClick={() => setIsOpen(false)}>
         <Title>{title}</Title>
-        <Arrow src={arrowUp} alt="arrow down" />
-      </TitleContainer>
+        <Arrow src={arrowDown} alt="arrow down" />
+      </Button>
+    </CollapseContainer>
+  ) : (
+    <CollapseContainer>
+      <Button onClick={() => setIsOpen(true)}>
+        <Title>{title}</Title>
+        <Arrow src={arrowUp} alt="arrow up" />
+      </Button>
       <Text>{text}</Text>
     </CollapseContainer>
   )
