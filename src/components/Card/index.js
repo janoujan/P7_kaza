@@ -63,8 +63,7 @@ const CardCaption = styled.figcaption`
 export default function Card ({ location }) {
   return (
     <CardList>
-      <NavLink key={location.id} to={`/location/:${location.id
-}`}>
+      <NavLink key={location.id} to={`/${location.id}`}>
         <CardFigure>
           <CardImage src={location.cover} alt={location.title} />
           <CardCaption>{location.title}</CardCaption>

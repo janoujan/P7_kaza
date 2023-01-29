@@ -1,5 +1,3 @@
-import React from 'react'
-import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 
@@ -30,16 +28,7 @@ const GalleryUl = styled.ul`
   }
 `
 
-export default function Gallery() {
-  const [data, setData] = useState([])
-
-  useEffect(() => {
-    fetch('logements.json')
-      .then((res) => res.json())
-      .then((res) => setData(res))
-      .catch((error) => console.log(error))
-  }, [])
-
+export default function Gallery({ data }) {
   return (
     <GalleryContainer>
       <GalleryUl>

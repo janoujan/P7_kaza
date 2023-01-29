@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react'
 
 export function useFetch(url) {
-  const [data, setData] = useState({})
-
-  const [isLoading, setLoading] = useState(true)
+  const [data, setData] = useState([])
 
   useEffect(() => {
     if (!url) return
@@ -14,14 +12,10 @@ export function useFetch(url) {
       const data = await response.json()
 
       setData(data)
-
-      setLoading(false)
     }
-
-    setLoading(true)
 
     fetchData()
   }, [url])
 
-  return { isLoading, data }
+  return { data }
 }
