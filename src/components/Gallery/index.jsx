@@ -22,6 +22,12 @@ const GalleryUl = styled.ul`
   background-color: ${colors.secondary};
   padding: 32px 16px;
   border-radius: 25px;
+
+  @media screen and (max-width: 768px) {
+    background-color: ${colors.tertary};
+    padding: 0px;
+    margin-top: -10px;
+  }
 `
 
 export default function Gallery() {

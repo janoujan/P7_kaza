@@ -10,6 +10,11 @@ const CollapseContainer = styled.div`
   top: 70px;
   margin: auto;
   margin-bottom: 20px;
+
+  @media screen and (max-width: 768px) {
+    width: 93%;
+    margin-left: 20px;
+  }
 `
 
 const Button = styled.div`

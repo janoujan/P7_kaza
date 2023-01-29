@@ -13,7 +13,9 @@ export default function Home() {
       <Banner
         image={BannerImg}
         alt={'a coastal landscape'}
-        text={'Chez vous, partout et ailleurs'}
+        // eslint-disable-next-line no-mixed-operators
+        text1={'Chez vous,'}
+        text2={'partout et ailleurs'}
       />
       <Gallery />
       <Footer />

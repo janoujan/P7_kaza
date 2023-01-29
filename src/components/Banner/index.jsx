@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import colors from "../../utils/style/colors"
+import styled from 'styled-components'
+import colors from '../../utils/style/colors'
 
 const BannerContainer = styled.div`
   position: relative;
@@ -10,6 +10,10 @@ const BannerContainer = styled.div`
   margin-left: 25px;
   top: 40px;
   border-radius: 25px;
+
+  @media screen and (max-width: 768px) {
+    margin-left: 20px;
+  }
 `
 
 const BannerImage = styled.img`
@@ -22,7 +26,7 @@ const BannerImage = styled.img`
   filter: brightness(70%);
 `
 
-const BannerText = styled.h1`
+const BannerText1 = styled.h1`
   position: absolute;
   margin: auto;
   text-align: center;
@@ -33,13 +37,30 @@ const BannerText = styled.h1`
   font-size: 48px;
   line-height: 68px;
   color: ${colors.secondary};
+
+  @media screen and (max-width: 768px) {
+    font-size: 24px;
+    line-height: 24px;
+    margin: 20px 0 0 15px;
+  }
 `
 
-export function Banner({ image, alt, text }) {
+const Break = styled.br`
+  display: none;
+
+  @media screen and (max-width: 768px) {
+    display: initial;
+  }
+`
+export function Banner({ image, alt, text1, text2 }) {
   return (
     <BannerContainer>
       <BannerImage src={image} alt={alt} />
-      <BannerText>{text}</BannerText>
+      <BannerText1>
+        {text1}
+        <Break></Break>
+        {text2}
+      </BannerText1>
     </BannerContainer>
   )
 }

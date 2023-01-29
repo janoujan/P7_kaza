@@ -5,18 +5,20 @@ import colors from '../../utils/style/colors'
 
 const HeaderContainer = styled.div`
   display: flex;
+  justify-content: space-between;
   height: 80px;
   margin-left: 40px;
   width: 90%;
-  border: 1px solid black;
+
+  @media screen and (max-width: 768px) {
+    margin-left: 20px;
+  }
 `
 const HeaderNav = styled.nav`
   display: flex;
   justify-content: flex-end;
   align-items: center;
   margin-right: 20px;
-  width: 70%;
-  border: 1px solid blue;
 
   @media screen and (max-width: 768px) {
     margin-right: 0px;
@@ -46,13 +48,9 @@ const StyledLink = styled(NavLink)`
   font-size: 24px;
   line-height: 142.6%;
 
-  //width: 50%;
-  border: 1px solid red;
-
-//   @media screen and (max-width: 768px) {
-//     display: flex;
-//     justify-content: flex-end;  
-// }
+  @media screen and (max-width: 768px) {
+    font-size: min(max(1rem, 4vw), 22px);
+  }
   &:hover,
   &:focus,
   &:active {
@@ -66,7 +64,6 @@ const NavList = styled.li`
   align-items: center;
   margin: 20px;
   list-style: none;
-  border: 1px solid green;
 `
 
 export default function Header() {

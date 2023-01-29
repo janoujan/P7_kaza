@@ -33,6 +33,13 @@ const CardFigure = styled.figure`
   &:hover {
     transform: scale(1.02);
   }
+
+@media screen and (max-width: 768px) {
+    margin-left: 0px;
+    max-width: 335px;
+    min-width: 70%;
+    height: 255px;
+  }
 `
 
 const CardImage = styled.img`

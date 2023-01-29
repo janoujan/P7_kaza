@@ -11,11 +11,27 @@ const ErrorPageContainer = styled.div`
 `
 
 const ErrorPageTitle = styled.h1`
-  font-size: 12rem;
+  font-size: 9rem;
+  font-family: 'Montserrat', arial, verdana;
+`
+const ErrorPageSubtitle = styled.h2`
+  font-family: 'Montserrat', arial, verdana;
+
+  @media screen and (max-width: 768px) {
+    text-align: center;
+    margin-inline: 5px;
+    margin-top: -80px;
+  }
 `
 
 const LinkToHome = styled(Link)`
-  color: #FF6060;
+  color: #ff6060;
+  font-size: 18px;
+  font-family: 'Montserrat', arial, verdana;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 120px;
+  }
 `
 
 export default function ErrorPage() {
@@ -27,7 +43,7 @@ export default function ErrorPage() {
       <Header />
       <ErrorPageContainer>
         <ErrorPageTitle>404</ErrorPageTitle>
-        <h2 className='errorSubtitle'>Oups! La page que vous demandez n'existe pas.</h2>
+        <ErrorPageSubtitle>Oups! La page que vous demandez n'existe pas.</ErrorPageSubtitle>
         <LinkToHome to={'/'} className='errorLink'>Retourner sur la page d'accueil</LinkToHome>
         <p>
           <i>{error ? error.statusText || error.message : ''}</i>
