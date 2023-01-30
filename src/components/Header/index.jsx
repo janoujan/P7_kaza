@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom'
 import logo from '../../assets/logo.svg'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
+import fontFamily from '../../utils/style/fontFamily'
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -15,15 +16,15 @@ const HeaderContainer = styled.div`
   }
 `
 const HeaderNav = styled.nav`
-position: relative;  
-display: flex;
+  position: relative;
+  display: flex;
   justify-content: flex-end;
   align-items: center;
   margin: 0;
   right: -3.5%;
 
   @media screen and (max-width: 768px) {
-   // margin-right: 0px;
+    // margin-right: 0px;
   }
 `
 
@@ -40,11 +41,10 @@ const HeaderLogo = styled.img`
   }
 `
 
-
 const StyledLink = styled(NavLink)`
   color: ${colors.primary};
   text-decoration: none;
-  font-family: 'Montserrat';
+  font-family: ${fontFamily.fontFamily};
   font-style: normal;
   font-weight: 500;
   font-size: 24px;

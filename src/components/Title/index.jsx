@@ -1,13 +1,14 @@
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
+import fontFamily from '../../utils/style/fontFamily'
 
-const TitleContainer = styled.article`
+const TitleContainer = styled.div`
   position: relative;
   margin-left: 40px;
 `
 
 const LocationTitle = styled.h1`
-  font-family: Montserrat;
+  font-family: ${fontFamily.fontFamily};
   font-size: 2.2rem;
   font-weight: 500;
   line-height: 40px;
@@ -18,7 +19,7 @@ const LocationTitle = styled.h1`
 `
 
 const LocationPlace = styled.h2`
-  font-family: Montserrat;
+  font-family: ${fontFamily.fontFamily};
   font-size: 1.4rem;
   font-weight: 500;
   line-height: 26px;

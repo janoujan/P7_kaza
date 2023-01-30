@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
+import fontFamily from '../../utils/style/fontFamily'
 
 const BannerContainer = styled.div`
   position: relative;
@@ -31,7 +32,7 @@ const BannerText1 = styled.h1`
   margin: auto;
   text-align: center;
   top: 35%;
-  font-family: 'Montserrat';
+  font-family: ${fontFamily.fontFamily};
   font-style: normal;
   font-weight: 500;
   font-size: 48px;

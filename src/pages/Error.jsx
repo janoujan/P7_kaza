@@ -1,5 +1,6 @@
 import { Link, useRouteError } from 'react-router-dom'
 import styled from 'styled-components'
+import fontFamily from '../utils/style/fontFamily'
 
 import Header from '../components/Header'
 
@@ -12,10 +13,10 @@ const ErrorPageContainer = styled.div`
 
 const ErrorPageTitle = styled.h1`
   font-size: 9rem;
-  font-family: 'Montserrat', arial, verdana;
+  font-family: ${fontFamily.fontFamily}, arial, verdana;
 `
 const ErrorPageSubtitle = styled.h2`
-  font-family: 'Montserrat', arial, verdana;
+  font-family: ${fontFamily.fontFamily}, arial, verdana;
 
   @media screen and (max-width: 768px) {
     text-align: center;
@@ -27,7 +28,7 @@ const ErrorPageSubtitle = styled.h2`
 const LinkToHome = styled(Link)`
   color: #ff6060;
   font-size: 18px;
-  font-family: 'Montserrat', arial, verdana;
+  font-family: ${fontFamily.fontFamily}, arial, verdana;
 
   @media screen and (max-width: 768px) {
     margin-top: 120px;
@@ -43,8 +44,12 @@ export default function ErrorPage() {
       <Header />
       <ErrorPageContainer>
         <ErrorPageTitle>404</ErrorPageTitle>
-        <ErrorPageSubtitle>Oups! La page que vous demandez n'existe pas.</ErrorPageSubtitle>
-        <LinkToHome to={'/'} className='errorLink'>Retourner sur la page d'accueil</LinkToHome>
+        <ErrorPageSubtitle>
+          Oups! La page que vous demandez n'existe pas.
+        </ErrorPageSubtitle>
+        <LinkToHome to={'/'} className="errorLink">
+          Retourner sur la page d'accueil
+        </LinkToHome>
         <p>
           <i>{error ? error.statusText || error.message : ''}</i>
         </p>

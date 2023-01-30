@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import colors from '../../utils/style/colors'
+import fontFamily from '../../utils/style/fontFamily'
 
 const CardList = styled.li`
   list-style: none;
@@ -52,7 +53,7 @@ const CardImage = styled.img`
 const CardCaption = styled.figcaption`
   position: absolute;
   font-weight: 500;
-  font-family: 'Montserrat', arial, verdana;
+  font-family: ${fontFamily.fontFamily};
   bottom: 15px;
   margin-left: 16px;
   margin-right: 10px;

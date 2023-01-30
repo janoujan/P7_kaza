@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
+import fontFamily from '../../utils/style/fontFamily'
 
 const TagContainer = styled.div`
   display: flex;
@@ -16,7 +17,7 @@ const TagElement = styled.div`
   border-radius: 10px;
   color: ${colors.tertary};
   background-color: ${colors.primary};
-  font-family: Montserrat;
+  font-family: ${fontFamily.fontFamily};
   font-size: 15px;
   font-weight: 500;
   line-height: 20px;

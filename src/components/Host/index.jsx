@@ -1,15 +1,16 @@
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
+import fontFamily from '../../utils/style/fontFamily'
 
-const HostContainer = styled.aside`
+const HostContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-right: 3%;
+  margin-right: 0;
 `
 
 const HostName = styled.p`
-  font-family: Montserrat;
+  font-family: ${fontFamily.fontFamily};
   font-size: 18px;
   font-weight: 500;
   line-height: 26px;
@@ -21,9 +22,9 @@ const HostName = styled.p`
 `
 
 const HostPicture = styled.img`
-width: 80px;
-height: 80px;
-border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
 `
 
 export default function Host({ accomodation }) {
@@ -32,7 +33,10 @@ export default function Host({ accomodation }) {
   return (
     <HostContainer>
       <HostName>{accomodation.host.name}</HostName>
-      <HostPicture src={accomodation.host.picture} alt={accomodation.host.name} />
+      <HostPicture
+        src={accomodation.host.picture}
+        alt={accomodation.host.name}
+      />
     </HostContainer>
   )
 }

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import arrowDown from '../../assets/dropdown_close.svg'
 import arrowUp from '../../assets/dropdown_open.svg'
 import colors from '../../utils/style/colors'
+import fontFamily from '../../utils/style/fontFamily'
 
 const CollapseContainer = styled.div`
   position: relative;
@@ -32,7 +33,7 @@ const Title = styled.h2`
   margin: 0;
   padding-top: 7px;
   // DRY
-  font-family: 'Montserrat';
+  font-family: ${fontFamily.fontFamily};
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -43,13 +44,13 @@ const Title = styled.h2`
 
 const Text = styled.p`
   // DRY
-  font-family: 'Montserrat';
+  font-family: ${fontFamily.fontFamily};
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 34px;
 
-  margin: 0px;
+  margin: 0;
   padding: 20px;
   border-radius: 5px;
   color: ${colors.primary};
@@ -74,5 +75,5 @@ export default function Collapse({ title, text }) {
       </Button>
       {isOpen ? <Text>{text}</Text> : ''}
     </CollapseContainer>
-  ) 
+  )
 }
