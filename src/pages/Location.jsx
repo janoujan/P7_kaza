@@ -1,32 +1,39 @@
 import { useFetch } from '../utils/hooks'
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import logements from '../utils/data/logements.json'
 
 import Header from '../components/Header'
 import Carrousel from '../components/Carrousel'
 import Footer from '../components/Footer'
+import Title from '../components/Title'
+import Host from '../components/Host'
+import styled from 'styled-components'
+import Tag from '../components/Tag'
+
+const Section1 = styled.section`
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: 70px;
+`
 
 export default function Location() {
-  // const [data, setData] = useState([])
-
-  // useEffect(() => {
-  //   fetch('logements.json')
-  //     .then((res) => res.json())
-  //     .then((res) => setData(res))
-  //     .catch((error) => console.log(error))
-  // }, [])
-
-  // const locations = useFetch(`logements.json`)
-
+  const { data } = useFetch(`logements.json`)
   const params = useParams()
-
-  let logement = logements.find((logement) => params.id === logement.id)
+  const accomodation = data.find(
+    (accomodation) => params.id === accomodation.id
+  )
   
   return (
     <>
       <Header />
-      <Carrousel logement={logement} />
+      <Carrousel accomodation={accomodation} />
+      <Section1>
+        <div>
+          <Title accomodation={accomodation} />
+          <Tag accomodation={accomodation} />
+        </div>
+        <Host accomodation={accomodation} />
+      </Section1>
       <Footer />
     </>
   )

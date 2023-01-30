@@ -15,13 +15,15 @@ const HeaderContainer = styled.div`
   }
 `
 const HeaderNav = styled.nav`
-  display: flex;
+position: relative;  
+display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-right: 20px;
+  margin: 0;
+  right: -3.5%;
 
   @media screen and (max-width: 768px) {
-    margin-right: 0px;
+   // margin-right: 0px;
   }
 `
 

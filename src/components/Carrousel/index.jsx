@@ -9,8 +9,11 @@ const CarrouselContainer = styled.div`
   top: 70px;
   height: 415px;
   width: 93%;
-  margin-left: 25px;
+  margin-left: 40px;
   border-radius: 25px;
+  background: #000000;
+  mix-blend-mode: darken;
+  opacity: 0.8;
 `
 const ArrowPrevious = styled.img`
   position: absolute;
@@ -53,29 +56,40 @@ const CarrouselImage = styled.img`
   object-fit: cover;
 `
 
-export default function Carrousel({ logement }) {
+export default function Carrousel({ accomodation }) {
   const [activeIndex, setActiveIndex] = useState(0)
-  console.log(logement.pictures[activeIndex])
+
+  if (!accomodation) return
+
+  const toPrevious = (activeIndex) => {
+    const lastIndex = accomodation.pictures.length - 1
+    return activeIndex < 1 ? lastIndex : activeIndex - 1
+  }
+
+  const toNext = (activeIndex) => {
+    const lastIndex = accomodation.pictures.length - 1
+    return activeIndex < lastIndex ? activeIndex + 1 : 0
+  }
 
   return (
     <CarrouselContainer>
       <CarrouselFigure>
         <CarrouselImage
-          src={logement.pictures[activeIndex]}
-          alt={logement.title}
+          src={accomodation.pictures[activeIndex]}
+          alt={accomodation.title}
         />
         <ButtonPrevious>
           <ArrowPrevious
             src={arrowPrevious}
             alt="arrow to previous picture"
-            onClick={() => setActiveIndex(activeIndex + 1)}
+            onClick={() => setActiveIndex(toPrevious(activeIndex))}
           />
         </ButtonPrevious>
         <ButtonNext>
           <ArrowNext
             src={arrowNext}
             alt="arrow to next picture"
-            onClick={() => setActiveIndex(activeIndex - 1)}
+            onClick={() => setActiveIndex(toNext(activeIndex))}
           />
         </ButtonNext>
       </CarrouselFigure>

@@ -31,7 +31,7 @@ const Title = styled.h2`
   border-radius: 5px;
   margin: 0;
   padding-top: 7px;
-
+  // DRY
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
@@ -42,6 +42,7 @@ const Title = styled.h2`
 `
 
 const Text = styled.p`
+  // DRY
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
@@ -60,22 +61,18 @@ const Arrow = styled.img`
 `
 
 export default function Collapse({ title, text }) {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
 
-  return isOpen ? (
+  return (
     <CollapseContainer>
-      <Button onClick={() => setIsOpen(false)}>
+      <Button onClick={() => setIsOpen(!isOpen)}>
         <Title>{title}</Title>
-        <Arrow src={arrowDown} alt="arrow down" />
+        <Arrow
+          src={isOpen ? arrowDown : arrowUp}
+          alt={isOpen ? 'arrow down' : 'arrow up'}
+        />
       </Button>
+      {isOpen ? <Text>{text}</Text> : ''}
     </CollapseContainer>
-  ) : (
-    <CollapseContainer>
-      <Button onClick={() => setIsOpen(true)}>
-        <Title>{title}</Title>
-        <Arrow src={arrowUp} alt="arrow up" />
-      </Button>
-      <Text>{text}</Text>
-    </CollapseContainer>
-  )
+  ) 
 }
