@@ -6,6 +6,12 @@ const StarContainer = styled.div`
   display: flex;
   flex-wrap: no-wrap;
   justify-content: flex-end;
+  position: relative;
+
+
+  @media screen and (min-width: 1440px) {
+    right: 1.6rem;
+  }
 `
 
 const Star = styled.img`
@@ -14,8 +20,6 @@ const Star = styled.img`
 `
 
 export default function Rate({ accomodation }) {
-  if (!accomodation) return
-
   const ratings = [1, 2, 3, 4, 5]
   return (
     <StarContainer>

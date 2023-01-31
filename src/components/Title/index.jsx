@@ -30,8 +30,7 @@ const LocationPlace = styled.h2`
 `
 
 export default function Title({ accomodation }) {
-  if (!accomodation) return
-  
+   
   return (
     <TitleContainer>
       <LocationTitle>{accomodation.title}</LocationTitle>

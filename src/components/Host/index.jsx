@@ -4,32 +4,38 @@ import fontFamily from '../../utils/style/fontFamily'
 
 const HostContainer = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  margin-right: 0;
+  position: relative;
+  top: -20px;
+  right: 0;
+
+  @media screen and (min-width: 1440px) {
+    right: 1.6rem;
+  }
 `
 
 const HostName = styled.p`
+  width: min-content;
+  margin-right: 20px;
+  text-align: right;
   font-family: ${fontFamily.fontFamily};
   font-size: 18px;
   font-weight: 500;
   line-height: 26px;
   letter-spacing: 0em;
-  text-align: right;
-  width: min-content;
-  margin-right: 20px;
   color: ${colors.primary};
 `
 
 const HostPicture = styled.img`
+  // position: relative;
+  // top: -15px;
   width: 80px;
   height: 80px;
   border-radius: 50%;
 `
 
 export default function Host({ accomodation }) {
-  if (!accomodation) return
-
   return (
     <HostContainer>
       <HostName>{accomodation.host.name}</HostName>

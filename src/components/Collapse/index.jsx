@@ -5,23 +5,11 @@ import arrowUp from '../../assets/dropdown_open.svg'
 import colors from '../../utils/style/colors'
 import fontFamily from '../../utils/style/fontFamily'
 
-const CollapseContainer = styled.div`
-  position: relative;
-  width: 73%;
-  top: 70px;
-  margin: auto;
-  margin-bottom: 20px;
-
-  @media screen and (max-width: 768px) {
-    width: 93%;
-    margin-left: 20px;
-  }
-`
-
 const Button = styled.div`
   display: flex;
   justify-content: space-between;
   padding-inline: 3%;
+  margin-bottom: 40px;
   height: 50px;
   border-radius: 5px;
   background-color: ${colors.primary};
@@ -32,27 +20,23 @@ const Title = styled.h2`
   border-radius: 5px;
   margin: 0;
   padding-top: 7px;
-  // DRY
+  padding-left: 2%;
   font-family: ${fontFamily.fontFamily};
-  font-style: normal;
   font-weight: 500;
   font-size: 24px;
   line-height: 34px;
-
   color: ${colors.secondary};
 `
 
 const Text = styled.p`
-  // DRY
+  margin-top: -40px;
+  padding: 20px;
+  padding-left: 5%;
+  border-radius: 5px;
   font-family: ${fontFamily.fontFamily};
-  font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 34px;
-
-  margin: 0;
-  padding: 20px;
-  border-radius: 5px;
   color: ${colors.primary};
   background-color: ${colors.secondary};
 `
@@ -63,9 +47,9 @@ const Arrow = styled.img`
 
 export default function Collapse({ title, text }) {
   const [isOpen, setIsOpen] = useState(false)
-
+  
   return (
-    <CollapseContainer>
+    <>
       <Button onClick={() => setIsOpen(!isOpen)}>
         <Title>{title}</Title>
         <Arrow
@@ -74,6 +58,6 @@ export default function Collapse({ title, text }) {
         />
       </Button>
       {isOpen ? <Text>{text}</Text> : ''}
-    </CollapseContainer>
+    </>
   )
 }

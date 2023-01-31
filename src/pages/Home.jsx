@@ -6,16 +6,7 @@ import BannerImg from '../assets/homeBanner.jpg'
 import Gallery from '../components/Gallery'
 import Footer from '../components/Footer'
 
-
 export default function Home() {
-//   const [data, setData] = useState([])
-
-// useEffect(() => {
-//     fetch('logements.json')
-//       .then((res) => res.json())
-//       .then((res) => setData(res))
-//       .catch((error) => console.log(error))
-//   }, [])
   
   const { data } = useFetch(`logements.json`)
   return (

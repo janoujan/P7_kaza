@@ -14,6 +14,9 @@ const BannerContainer = styled.div`
 
   @media screen and (max-width: 768px) {
     margin-left: 20px;
+    margin-right: 200px;
+    height: 110px;
+width: 89%;
   }
 `
 
@@ -40,6 +43,7 @@ const BannerText1 = styled.h1`
   color: ${colors.secondary};
 
   @media screen and (max-width: 768px) {
+    top: 15%;
     font-size: 24px;
     line-height: 24px;
     margin: 20px 0 0 15px;

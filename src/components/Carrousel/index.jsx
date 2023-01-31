@@ -59,8 +59,6 @@ const CarrouselImage = styled.img`
 export default function Carrousel({ accomodation }) {
   const [activeIndex, setActiveIndex] = useState(0)
 
-  if (!accomodation) return
-
   const toPrevious = (activeIndex) => {
     const lastIndex = accomodation.pictures.length - 1
     return activeIndex < 1 ? lastIndex : activeIndex - 1

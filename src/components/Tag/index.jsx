@@ -4,30 +4,28 @@ import fontFamily from '../../utils/style/fontFamily'
 
 const TagContainer = styled.div`
   display: flex;
-  justify-content: flex-start;
   margin-left: 40px;
 `
 
 const TagElement = styled.div`
-  margin: auto;
-  margin-left: 0px;
-  height: max-content;
   width: max-content;
+  height: max-content;
+  margin-left: 0px;
+  margin-right: 20px;
   padding: 5px 25px;
   border-radius: 10px;
-  color: ${colors.tertary};
-  background-color: ${colors.primary};
+  text-align: center;
   font-family: ${fontFamily.fontFamily};
   font-size: 15px;
   font-weight: 500;
   line-height: 20px;
   letter-spacing: 0em;
-  text-align: center;
+  color: ${colors.tertary};
+  background-color: ${colors.primary};
 `
 
 export default function Tag({ accomodation }) {
-  if (!accomodation) return
-
+  
   return (
     <TagContainer>
       {accomodation.tags.map((tag, index) => (

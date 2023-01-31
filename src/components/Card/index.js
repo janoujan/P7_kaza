@@ -37,6 +37,7 @@ const CardFigure = styled.figure`
 
 @media screen and (max-width: 768px) {
     margin-left: 0px;
+    margin-right: 50px;
     max-width: 335px;
     min-width: 70%;
     height: 255px;
