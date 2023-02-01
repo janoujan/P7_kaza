@@ -13,6 +13,11 @@ const Button = styled.div`
   height: 50px;
   border-radius: 5px;
   background-color: ${colors.primary};
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 15px;
+    width: -webkit-fill-available;
+  }
 `
 
 const Title = styled.h2`
@@ -39,6 +44,12 @@ const Text = styled.p`
   line-height: 34px;
   color: ${colors.primary};
   background-color: ${colors.secondary};
+
+  @media screen and (max-width: 768px) {
+    position: relative;
+    top: 25px;
+    margin-block-end: 60px;
+  }
 `
 
 const Arrow = styled.img`

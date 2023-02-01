@@ -8,6 +8,10 @@ const StarContainer = styled.div`
   justify-content: flex-end;
   position: relative;
 
+  @media screen and (max-width: 768px) {
+    top: 40px;
+    margin-left: 25px;
+  }
 
   @media screen and (min-width: 1440px) {
     right: 1.6rem;
@@ -17,6 +21,11 @@ const StarContainer = styled.div`
 const Star = styled.img`
   width: 30px;
   height: 30px;
+
+  @media screen and (max-width: 768px) {
+    width: 20px;
+    height: 20px;
+  }
 `
 
 export default function Rate({ accomodation }) {

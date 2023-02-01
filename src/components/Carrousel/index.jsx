@@ -14,6 +14,14 @@ const CarrouselContainer = styled.div`
   background: #000000;
   mix-blend-mode: darken;
   opacity: 0.8;
+
+  @media screen and (max-width: 768px) {
+    width: -webkit-fill-available;
+    margin-left: 25px;
+    width: -moz-available;
+    margin-right: 1rem;
+    top: 20px;
+  }
 `
 const ArrowPrevious = styled.img`
   position: absolute;

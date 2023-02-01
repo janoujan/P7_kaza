@@ -16,21 +16,17 @@ const CollapseContainer = styled.div`
   justify-content: space-between;
 
   @media screen and (max-width: 768px) {
-    width: 93%;
+    margin-right: 20px;
     margin-left: 20px;
+    width: 93%;
   }
-`
-
-const AboutBanner = styled(Banner)`
-border: 2px solid black;
-width: 100%;
 `
 
 export default function About() {
   return (
     <>
       <Header />
-      <AboutBanner image={BannerImage} alt={'a mountain landscape'} />
+      <Banner image={BannerImage} alt={'a mountain landscape'} />
       <CollapseContainer>
         <Collapse
           title={'Fiabilité'}

@@ -5,6 +5,10 @@ import fontFamily from '../../utils/style/fontFamily'
 const TitleContainer = styled.div`
   position: relative;
   margin-left: 40px;
+
+  @media screen and (max-width: 768px) {
+    margin-left: 25px;
+  }
 `
 
 const LocationTitle = styled.h1`
@@ -30,7 +34,6 @@ const LocationPlace = styled.h2`
 `
 
 export default function Title({ accomodation }) {
-   
   return (
     <TitleContainer>
       <LocationTitle>{accomodation.title}</LocationTitle>

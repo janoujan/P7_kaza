@@ -6,11 +6,16 @@ import Card from '../Card'
 const GalleryContainer = styled.div`
   position: relative;
   width: 93%;
-  margin-left: 25px;
+  margin-left: 20px;
   height: fit-content;
   top: 70px;
   background-color: ${colors.secondary};
   border-radius: 25px;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 10px;
+    background-color: ${colors.tertary};
+  }
 `
 
 const GalleryUl = styled.ul`
@@ -25,6 +30,7 @@ const GalleryUl = styled.ul`
     background-color: ${colors.tertary};
     padding: 0px;
     margin-top: -10px;
+    //margin-right: 1rem;
   }
 `
 

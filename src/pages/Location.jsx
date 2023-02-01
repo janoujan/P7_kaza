@@ -16,6 +16,11 @@ const Section1 = styled.section`
   justify-content: space-between;
   position: relative;
   top: 70px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    top: 10px;
+  }
 `
 
 const Aside = styled.aside`
@@ -24,6 +29,14 @@ const Aside = styled.aside`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    height: min-content;
+  }
 `
 
 const Section2 = styled.section`
@@ -32,12 +45,24 @@ const Section2 = styled.section`
   margin: 40px 40px 0;
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 768px) {
+    top: 0;
+    margin: 0;
+    margin-bottom: -80px;
+    flex-direction: column;
+    margin-left: 25px;
+  }
 `
 
 const CollapseContainer = styled.div`
   width: 45%;
   position: relative;
   right: 0;
+
+  @media screen and (max-width: 768px) {
+    width: 96%;
+  }
 
   @media screen and (min-width: 1440px) {
     margin-left: 2.2vw;

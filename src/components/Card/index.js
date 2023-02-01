@@ -6,7 +6,11 @@ import fontFamily from '../../utils/style/fontFamily'
 
 const CardList = styled.li`
   list-style: none;
-  
+
+ @media screen and (max-width: 768px) {
+width: -moz-available;
+width: -webkit-fill-available;
+} 
 `
 
 const CardFigure = styled.figure`
@@ -35,12 +39,13 @@ const CardFigure = styled.figure`
     transform: scale(1.02);
   }
 
-@media screen and (max-width: 768px) {
-    margin-left: 0px;
-    margin-right: 50px;
-    max-width: 335px;
-    min-width: 70%;
+  @media screen and (max-width: 768px) {
+    margin: 0;
+    margin-bottom: 25px;
+    margin-right: 10px;
     height: 255px;
+    width: 100%;
+    max-width: 100%;
   }
 `
 

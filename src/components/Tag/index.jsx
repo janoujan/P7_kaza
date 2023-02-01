@@ -5,6 +5,12 @@ import fontFamily from '../../utils/style/fontFamily'
 const TagContainer = styled.div`
   display: flex;
   margin-left: 40px;
+
+  @media screen and (max-width: 768px) {
+    margin-left: 25px;
+    width: -webkit-fill-available;
+    flex-wrap: wrap;
+  }
 `
 
 const TagElement = styled.div`
@@ -22,10 +28,13 @@ const TagElement = styled.div`
   letter-spacing: 0em;
   color: ${colors.tertary};
   background-color: ${colors.primary};
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 15px;
+  }
 `
 
 export default function Tag({ accomodation }) {
-  
   return (
     <TagContainer>
       {accomodation.tags.map((tag, index) => (

@@ -12,7 +12,7 @@ const HeaderContainer = styled.div`
   width: 90%;
 
   @media screen and (max-width: 768px) {
-    margin-left: 20px;
+    margin-left: 25px;
   }
 `
 const HeaderNav = styled.nav`
@@ -24,7 +24,9 @@ const HeaderNav = styled.nav`
   right: -3.5%;
 
   @media screen and (max-width: 768px) {
-    // margin-right: 0px;
+    width: -webkit-fill-available;
+    width: -moz-available;
+    margin-right: 0.5em;
   }
 `
 
@@ -37,7 +39,7 @@ const HeaderLogo = styled.img`
 
   @media screen and (max-width: 768px) {
     width: 95%;
-    min-width: 80px;
+    min-width: 100px;
   }
 `
 
@@ -51,7 +53,10 @@ const StyledLink = styled(NavLink)`
   line-height: 142.6%;
 
   @media screen and (max-width: 768px) {
-    font-size: min(max(1rem, 4vw), 22px);
+    font-size: min(max(0.5rem, 4vw), 24px);
+    display: flex;
+    justify-content: flex-start;
+    margin: 0px;
   }
   &:hover,
   &:focus,
@@ -66,6 +71,10 @@ const NavList = styled.li`
   align-items: center;
   margin: 20px;
   list-style: none;
+
+  @media screen and (max-width: 768px) {
+    margin-inline: 0.5rem;
+  }
 `
 
 export default function Header() {

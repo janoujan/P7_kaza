@@ -14,9 +14,9 @@ const BannerContainer = styled.div`
 
   @media screen and (max-width: 768px) {
     margin-left: 20px;
-    margin-right: 200px;
+    margin-right: 10px;
     height: 110px;
-width: 89%;
+    justify-content: left;
   }
 `
 
@@ -30,7 +30,7 @@ const BannerImage = styled.img`
   filter: brightness(70%);
 `
 
-const BannerText1 = styled.h1`
+const BannerText = styled.h1`
   position: absolute;
   margin: auto;
   text-align: center;
@@ -43,10 +43,12 @@ const BannerText1 = styled.h1`
   color: ${colors.secondary};
 
   @media screen and (max-width: 768px) {
-    top: 15%;
-    font-size: 24px;
-    line-height: 24px;
-    margin: 20px 0 0 15px;
+    top: 14%;
+    font-size: 28px;
+    line-height: 28px;
+    margin: 7px 0 10px 20px;
+    text-align: left;
+    height: max-content;
   }
 `
 
@@ -61,11 +63,11 @@ export function Banner({ image, alt, text1, text2 }) {
   return (
     <BannerContainer>
       <BannerImage src={image} alt={alt} />
-      <BannerText1>
+      <BannerText>
         {text1}
         <Break></Break>
         {text2}
-      </BannerText1>
+      </BannerText>
     </BannerContainer>
   )
 }
