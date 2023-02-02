@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import arrowDown from '../../assets/dropdown_close.svg'
 import arrowUp from '../../assets/dropdown_open.svg'
 import colors from '../../utils/style/colors'
@@ -52,20 +52,33 @@ const Text = styled.p`
   }
 `
 
+const flip = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(540deg);
+  }
+`
+
 const Arrow = styled.img`
   width: 30px;
+  animation: ${flip} 0.3s ease-in-out;
+  transform: ${({ isOpen }) => (isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
+  transition: transform 0.3s ease-in-out;
 `
 
 export default function Collapse({ title, text }) {
   const [isOpen, setIsOpen] = useState(false)
-  
+
   return (
     <>
       <Button onClick={() => setIsOpen(!isOpen)}>
         <Title>{title}</Title>
         <Arrow
-          src={isOpen ? arrowDown : arrowUp}
-          alt={isOpen ? 'arrow down' : 'arrow up'}
+          src={isOpen ? arrowUp : arrowDown}
+          alt={isOpen ? 'arrow up' : 'arrow down'}
+          isOpen={isOpen}
         />
       </Button>
       {isOpen ? <Text>{text}</Text> : ''}
