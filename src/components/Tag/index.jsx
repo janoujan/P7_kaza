@@ -26,7 +26,7 @@ const TagElement = styled.div`
   font-weight: 500;
   line-height: 20px;
   letter-spacing: 0em;
-  color: ${colors.tertary};
+  color: ${colors.black};
   background-color: ${colors.primary};
 
   @media screen and (max-width: 768px) {

@@ -1,16 +1,30 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import colors from '../../utils/style/colors'
 import fontFamily from '../../utils/style/fontFamily'
 
+const glowing = keyframes`
+   0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+`
+
 const CardList = styled.li`
   list-style: none;
 
- @media screen and (max-width: 768px) {
-width: -moz-available;
-width: -webkit-fill-available;
-} 
+  @media screen and (max-width: 768px) {
+    width: -moz-available;
+    width: -webkit-fill-available;
+  }
 `
 
 const CardFigure = styled.figure`
@@ -37,6 +51,30 @@ const CardFigure = styled.figure`
 
   &:hover {
     transform: scale(1.02);
+    animation: ${glowing} 20s linear infinite;
+
+    &::before {
+                content: "";
+                background: linear-gradient(45deg,
+                        ${colors.primary},
+                        ${colors.primary},
+                        ${colors.primary},
+                        ${colors.primary},
+                        ${colors.black},
+                        ${colors.primary},
+                        ${colors.primary},
+                        ${colors.primary},
+                        ${colors.primary});
+                position: absolute;
+                top: -4px;
+                left: -3px;
+                background-size: 150%;
+                z-index: -1;
+                filter: blur(3px);
+                width: calc(100% + 6px);
+                height: calc(90% + 42px);
+                animation: ${glowing} 20s linear infinite;
+                transition: opactiy 0.3s ease-in-out;
   }
 
   @media screen and (max-width: 768px) {
@@ -64,10 +102,10 @@ const CardCaption = styled.figcaption`
   margin-left: 16px;
   margin-right: 10px;
   font-size: 18px;
-  color: ${colors.tertary};
+  color: ${colors.black};
 `
 
-export default function Card ({ location }) {
+export default function Card({ location }) {
   return (
     <CardList>
       <NavLink key={location.id} to={`/${location.id}`}>
