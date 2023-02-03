@@ -57,14 +57,14 @@ const flip = keyframes`
     transform: rotate(0deg);
   }
   100% {
-    transform: rotate(540deg);
+    transform: rotate(180deg);
   }
 `
 
 const Arrow = styled.img`
   width: 30px;
   animation: ${flip} 0.3s ease-in-out;
-  transform: ${({ isOpen }) => (isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
+  transform: ${({ isOpen }) => (isOpen ? 'rotate(360deg)' : 'rotate(0deg)')};
   transition: transform 0.3s ease-in-out;
 `
 
