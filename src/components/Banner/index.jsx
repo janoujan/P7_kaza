@@ -59,7 +59,7 @@ const Break = styled.br`
     display: initial;
   }
 `
-export function Banner({ image, alt, text1, text2 }) {
+export default function Banner({ image, alt, text1, text2 }) {
   return (
     <BannerContainer>
       <BannerImage src={image} alt={alt} />

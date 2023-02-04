@@ -1,8 +1,9 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import logo from '../../assets/logo.svg'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 import fontFamily from '../../utils/style/fontFamily'
+
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -80,9 +81,9 @@ const NavList = styled.li`
 export default function Header() {
   return (
     <HeaderContainer>
-      <NavLink to={`/`}>
+      <Link to={`/`}>
         <HeaderLogo src={logo} alt="logo" />
-      </NavLink>
+      </Link>
       <HeaderNav>
         <NavList>
           <StyledLink to={`/`}>Accueil</StyledLink>

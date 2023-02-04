@@ -1,8 +1,10 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Await } from 'react-router-dom'
 import colors from '../../utils/style/colors'
 import fontFamily from '../../utils/style/fontFamily'
+
+import SpinLoader from '../SpinLoader'
 
 const glowing = keyframes`
    0% {
@@ -54,36 +56,43 @@ const CardFigure = styled.figure`
     animation: ${glowing} 20s linear infinite;
 
     &::before {
-                content: "";
-                background: linear-gradient(45deg,
-                        ${colors.primary},
-                        ${colors.primary},
-                        ${colors.primary},
-                        ${colors.primary},
-                        ${colors.black},
-                        ${colors.primary},
-                        ${colors.primary},
-                        ${colors.primary},
-                        ${colors.primary});
-                position: absolute;
-                top: -4px;
-                left: -3px;
-                background-size: 150%;
-                z-index: -1;
-                filter: blur(3px);
-                width: calc(100% + 6px);
-                height: calc(90% + 42px);
-                animation: ${glowing} 20s linear infinite;
-                transition: opactiy 0.3s ease-in-out;
+      content: '';
+      background: linear-gradient(
+        45deg,
+        ${colors.primary},
+        ${colors.primary},
+        ${colors.primary},
+        ${colors.primary},
+        ${colors.black},
+        ${colors.primary},
+        ${colors.primary},
+        ${colors.primary},
+        ${colors.primary}
+      );
+      position: absolute;
+      top: -4px;
+      left: -3px;
+      background-size: 150%;
+      z-index: -1;
+      filter: blur(3px);
+      width: calc(100% + 6px);
+      height: calc(90% + 42px);
+      animation: ${glowing} 20s linear infinite;
+      transition: opactiy 0.3s ease-in-out;
+    }
   }
-
   @media screen and (max-width: 768px) {
     margin: 0;
     margin-bottom: 25px;
     margin-right: 10px;
     height: 255px;
     width: 100%;
-    max-width: 100%;
+    max-width: 98%;
+    &:hover {
+      &::before {
+        height: calc(90% + 32px);
+      }
+    }
   }
 `
 
@@ -102,18 +111,26 @@ const CardCaption = styled.figcaption`
   margin-left: 16px;
   margin-right: 10px;
   font-size: 18px;
-  color: ${colors.black};
+  color: ${colors.tertary};
 `
 
-export default function Card({ location }) {
+export default function Card({ data }) {
+  console.log('+++++++++++', data)
   return (
     <CardList>
-      <NavLink key={location.id} to={`/${location.id}`}>
-        <CardFigure>
-          <CardImage src={location.cover} alt={location.title} />
-          <CardCaption>{location.title}</CardCaption>
-        </CardFigure>
-      </NavLink>
+      <React.Suspense fallback={<SpinLoader />}>
+        <Await resolve={data}>
+          {(data) => {
+          console.log('xxxxxxxx', data);
+            <NavLink key={data.id} to={`/location/${data.id}`}>
+              <CardFigure>
+                <CardImage src={data.cover} alt={data.title} />
+                <CardCaption>{data.title}</CardCaption>
+              </CardFigure>
+            </NavLink>
+          }}
+        </Await>
+      </React.Suspense>
     </CardList>
   )
 }

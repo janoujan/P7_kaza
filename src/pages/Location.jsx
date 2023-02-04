@@ -1,5 +1,4 @@
-import { useFetch } from '../utils/hooks'
-import { useParams } from 'react-router-dom'
+import { useParams, useLoaderData } from 'react-router-dom'
 import styled from 'styled-components'
 
 import Header from '../components/Header'
@@ -10,6 +9,7 @@ import Tag from '../components/Tag'
 import Rate from '../components/Rate'
 import Collapse from '../components/Collapse'
 import Footer from '../components/Footer'
+import ErrorPage from './Error'
 
 const Section1 = styled.section`
   display: flex;
@@ -79,14 +79,31 @@ const Article = styled.article`
   width: -moz-available;
   width: -webkit-fill-available; ;
 `
+async function getAccomodation(id) {
+  const response = await fetch('logements.json')
+  const accomodations = await response.json()
+
+  const accomodation = accomodations.find(
+    (accomodation) => accomodation.id === id
+  )
+
+  return accomodation
+}
+
+export async function loader({ params }) {
+  return getAccomodation(params.id)
+}
 
 export default function Location() {
-  const { data } = useFetch(`logements.json`)
   const params = useParams()
-  const accomodation = data.find(
-    (accomodation) => params.id === accomodation.id
-  )
-  if (!accomodation) return
+  const accomodation = useLoaderData()
+
+  // const accomodation = data.find(
+  //   (accomodation) => params.id === accomodation.id
+  // )
+
+  if (accomodation.id !== params.id) return <ErrorPage />
+
   return (
     <>
       <Header />

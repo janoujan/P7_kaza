@@ -47,7 +47,7 @@ export default function ErrorPage() {
         <ErrorPageSubtitle>
           Oups! La page que vous demandez n'existe pas.
         </ErrorPageSubtitle>
-        <LinkToHome to={'/'} className="errorLink">
+        <LinkToHome to={'/'} >
           Retourner sur la page d'accueil
         </LinkToHome>
         <p>

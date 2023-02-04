@@ -1,7 +1,10 @@
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
+import { Await } from 'react-router-dom'
+import React from 'react'
 
 import Card from '../Card'
+import SpinLoader from '../SpinLoader'
 
 const GalleryContainer = styled.div`
   position: relative;
@@ -35,13 +38,24 @@ const GalleryUl = styled.ul`
 `
 
 export default function Gallery({ data }) {
+  console.log('=============>', data.data)
   return (
     <GalleryContainer>
-      <GalleryUl>
-        {data.map((location) => (
-          <Card key={location.id} location={location} />
-        ))}
-      </GalleryUl>
+      {
+        <GalleryUl>
+          {/* {data.data.map((accomodation) => (
+            <Card key={accomodation.id} location={accomodation} />
+          ))} */}
+          <React.Suspense fallback={<SpinLoader />}>
+            <Await
+              // and is the promise we pass to Await
+              resolve={data.data}
+            >
+              {(data) => <Card key={data.id} data={data} />}
+            </Await>
+          </React.Suspense>
+        </GalleryUl>
+      }
     </GalleryContainer>
   )
 }

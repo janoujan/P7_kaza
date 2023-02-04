@@ -1,9 +1,10 @@
 import Header from '../components/Header'
-import { Banner } from '../components/Banner'
+import Banner from '../components/Banner'
 import BannerImage from '../assets/aboutBanner.jpg'
 import Collapse from '../components/Collapse'
 import Footer from '../components/Footer'
 import styled from 'styled-components'
+import { Outlet } from 'react-router-dom'
 
 const CollapseContainer = styled.div`
   position: relative;
@@ -25,6 +26,7 @@ const CollapseContainer = styled.div`
 export default function About() {
   return (
     <>
+      <Outlet />
       <Header />
       <Banner image={BannerImage} alt={'a mountain landscape'} />
       <CollapseContainer>

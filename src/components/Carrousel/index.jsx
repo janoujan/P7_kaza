@@ -65,6 +65,7 @@ const CarrouselImage = styled.img`
 `
 
 export default function Carrousel({ accomodation }) {
+
   const [activeIndex, setActiveIndex] = useState(0)
 
   const toPrevious = (activeIndex) => {
@@ -76,8 +77,17 @@ export default function Carrousel({ accomodation }) {
     const lastIndex = accomodation.pictures.length - 1
     return activeIndex < lastIndex ? activeIndex + 1 : 0
   }
-
-  return (
+  
+  return (accomodation.pictures.length === 1 ? (
+    <CarrouselContainer>
+      <CarrouselFigure>
+        <CarrouselImage
+          src={accomodation.pictures[activeIndex]}
+          alt={accomodation.title}
+        />
+      </CarrouselFigure>
+    </CarrouselContainer>
+  ) : (
     <CarrouselContainer>
       <CarrouselFigure>
         <CarrouselImage
@@ -100,5 +110,5 @@ export default function Carrousel({ accomodation }) {
         </ButtonNext>
       </CarrouselFigure>
     </CarrouselContainer>
-  )
+  ))
 }
