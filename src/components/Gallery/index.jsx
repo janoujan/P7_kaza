@@ -38,22 +38,17 @@ const GalleryUl = styled.ul`
 `
 
 export default function Gallery({ data }) {
-  console.log('=============>', data.data)
+  console.log('Gallery/data======>', data)
+
+ if (!data) return <SpinLoader />
+
   return (
     <GalleryContainer>
       {
         <GalleryUl>
-          {/* {data.data.map((accomodation) => (
+          {data.data.map((accomodation) => (
             <Card key={accomodation.id} location={accomodation} />
-          ))} */}
-          <React.Suspense fallback={<SpinLoader />}>
-            <Await
-              // and is the promise we pass to Await
-              resolve={data.data}
-            >
-              {(data) => <Card key={data.id} data={data} />}
-            </Await>
-          </React.Suspense>
+          ))}
         </GalleryUl>
       }
     </GalleryContainer>

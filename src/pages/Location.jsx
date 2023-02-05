@@ -1,4 +1,4 @@
-import { useParams, useLoaderData } from 'react-router-dom'
+import { useParams, useLoaderData, Outlet } from 'react-router-dom'
 import styled from 'styled-components'
 
 import Header from '../components/Header'
@@ -102,38 +102,42 @@ export default function Location() {
   //   (accomodation) => params.id === accomodation.id
   // )
 
+  if (!accomodation) return
+
   if (accomodation.id !== params.id) return <ErrorPage />
 
   return (
     <>
-      <Header />
-      <Carrousel accomodation={accomodation} />
-      <Section1>
-        <Article>
-          <Title accomodation={accomodation} />
-          <Tag accomodation={accomodation} />
-        </Article>
-        <Aside>
-          <Host accomodation={accomodation} />
-          <Rate accomodation={accomodation} />
-        </Aside>
-      </Section1>
-      <Section2>
-        <CollapseContainer>
-          <Collapse title={'Description'} text={accomodation.description} />
-        </CollapseContainer>
-        <CollapseContainer>
-          <Collapse
-            title={'Equipements'}
-            text={accomodation.equipments.map((equipment, index) => (
-              <EquipementsList key={`${equipment}-${index}`}>
-                {equipment}
-              </EquipementsList>
-            ))}
-          />
-        </CollapseContainer>
-      </Section2>
-      <Footer />
+      
+        <Header />
+        <Carrousel accomodation={accomodation} />
+        <Section1>
+          <Article>
+            <Title accomodation={accomodation} />
+            <Tag accomodation={accomodation} />
+          </Article>
+          <Aside>
+            <Host accomodation={accomodation} />
+            <Rate accomodation={accomodation} />
+          </Aside>
+        </Section1>
+        <Section2>
+          <CollapseContainer>
+            <Collapse title={'Description'} text={accomodation.description} />
+          </CollapseContainer>
+          <CollapseContainer>
+            <Collapse
+              title={'Equipements'}
+              text={accomodation.equipments.map((equipment, index) => (
+                <EquipementsList key={`${equipment}-${index}`}>
+                  {equipment}
+                </EquipementsList>
+              ))}
+            />
+          </CollapseContainer>
+        </Section2>
+        <Footer />
+      
     </>
   )
 }

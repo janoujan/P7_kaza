@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 import fontFamily from '../../utils/style/fontFamily'
 
-
 const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -79,6 +78,7 @@ const NavList = styled.li`
 `
 
 export default function Header() {
+  
   return (
     <HeaderContainer>
       <Link to={`/`}>

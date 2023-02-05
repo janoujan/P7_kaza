@@ -1,6 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
-import { NavLink, Await } from 'react-router-dom'
+import {
+  NavLink,
+  Await,
+  useAsyncValue,
+  json,
+  Navigate,
+  Link,
+  Outlet,
+} from 'react-router-dom'
 import colors from '../../utils/style/colors'
 import fontFamily from '../../utils/style/fontFamily'
 
@@ -114,23 +122,19 @@ const CardCaption = styled.figcaption`
   color: ${colors.tertary};
 `
 
-export default function Card({ data }) {
-  console.log('+++++++++++', data)
+export default function Card({ location }) {
+if(!location) return <SpinLoader />
+
   return (
-    <CardList>
-      <React.Suspense fallback={<SpinLoader />}>
-        <Await resolve={data}>
-          {(data) => {
-          console.log('xxxxxxxx', data);
-            <NavLink key={data.id} to={`/location/${data.id}`}>
-              <CardFigure>
-                <CardImage src={data.cover} alt={data.title} />
-                <CardCaption>{data.title}</CardCaption>
-              </CardFigure>
-            </NavLink>
-          }}
-        </Await>
-      </React.Suspense>
-    </CardList>
+    <>
+      <CardList key={location.id}>
+        <NavLink to={`/accomodation/${location.id}`}>
+          <CardFigure>
+            <CardImage src={location.cover} alt={location.title} />
+            <CardCaption>{location.title}</CardCaption>
+          </CardFigure>
+        </NavLink>
+      </CardList>
+    </>
   )
 }
