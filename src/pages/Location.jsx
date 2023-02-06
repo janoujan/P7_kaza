@@ -10,6 +10,7 @@ import Rate from '../components/Rate'
 import Collapse from '../components/Collapse'
 import Footer from '../components/Footer'
 import ErrorPage from './Error'
+import { useState } from 'react'
 
 const Section1 = styled.section`
   display: flex;
@@ -80,17 +81,23 @@ const Article = styled.article`
   width: -webkit-fill-available; ;
 `
 async function getAccomodation(id) {
-  const response = await fetch('http://localhost:3000/logements.json')
-  console.log('Location logement.json', response)
-  const accomodations = await response.json()
-
-  const accomodation = accomodations.find(
-    (accomodation) => accomodation.id === id
-  )
-
-  return accomodation
+  try {
+    // we fetch and parse data
+    const response = await fetch('http://localhost:3000/logements.json')
+    const accomodations = await response.json()
+    // we find accomodation coresponding to params.id passed as id argument
+    const accomodation = accomodations.find(
+      (accomodation) => accomodation.id === id
+    )
+    return accomodation
+  } catch (error) {
+    console.log(error)
+    return <ErrorPage />
+  } finally {
+  }
 }
 
+// our loader using precedent function to fetch, parse, and compare params.id and logements.id
 export async function loader({ params }) {
   return getAccomodation(params.id)
 }
@@ -99,46 +106,45 @@ export default function Location() {
   const params = useParams()
   const accomodation = useLoaderData()
 
-  // const accomodation = data.find(
-  //   (accomodation) => params.id === accomodation.id
-  // )
+  // in case data didn't load yet ...
+  // we don't want to block this runtime
+  // so return empty
 
   if (!accomodation) return
 
+  // add usefull verification
   if (accomodation.id !== params.id) return <ErrorPage />
 
   return (
     <>
-      
-        <Header />
-        <Carrousel accomodation={accomodation} />
-        <Section1>
-          <Article>
-            <Title accomodation={accomodation} />
-            <Tag accomodation={accomodation} />
-          </Article>
-          <Aside>
-            <Host accomodation={accomodation} />
-            <Rate accomodation={accomodation} />
-          </Aside>
-        </Section1>
-        <Section2>
-          <CollapseContainer>
-            <Collapse title={'Description'} text={accomodation.description} />
-          </CollapseContainer>
-          <CollapseContainer>
-            <Collapse
-              title={'Equipements'}
-              text={accomodation.equipments.map((equipment, index) => (
-                <EquipementsList key={`${equipment}-${index}`}>
-                  {equipment}
-                </EquipementsList>
-              ))}
-            />
-          </CollapseContainer>
-        </Section2>
-        <Footer />
-      
+      <Header />
+      <Carrousel accomodation={accomodation} />
+      <Section1>
+        <Article>
+          <Title accomodation={accomodation} />
+          <Tag accomodation={accomodation} />
+        </Article>
+        <Aside>
+          <Host accomodation={accomodation} />
+          <Rate accomodation={accomodation} />
+        </Aside>
+      </Section1>
+      <Section2>
+        <CollapseContainer>
+          <Collapse title={'Description'} text={accomodation.description} />
+        </CollapseContainer>
+        <CollapseContainer>
+          <Collapse
+            title={'Equipements'}
+            text={accomodation.equipments.map((equipment, index) => (
+              <EquipementsList key={`${equipment}-${index}`}>
+                {equipment}
+              </EquipementsList>
+            ))}
+          />
+        </CollapseContainer>
+      </Section2>
+      <Footer />
     </>
   )
 }
