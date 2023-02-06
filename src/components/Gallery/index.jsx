@@ -38,8 +38,7 @@ const GalleryUl = styled.ul`
 `
 
 export default function Gallery({ data }) {
-  console.log('Gallery/data======>', data)
-
+  
  if (!data) return <SpinLoader />
 
   return (

@@ -81,12 +81,12 @@ export default function Header() {
   
   return (
     <HeaderContainer>
-      <Link to={`/`}>
+      <Link to={`/`} >
         <HeaderLogo src={logo} alt="logo" />
       </Link>
       <HeaderNav>
         <NavList>
-          <StyledLink to={`/`}>Accueil</StyledLink>
+          <StyledLink to={`/`} >Accueil</StyledLink>
         </NavList>
         <NavList>
           <StyledLink to={`/about`}>APropos</StyledLink>

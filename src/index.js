@@ -4,20 +4,26 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
-  RouterProvider
+  RouterProvider,
+  Routes
 } from 'react-router-dom'
 import { loader as rootLoader } from './pages/Home'
 import { loader as accomodationLoader } from './pages/Location'
+import { Fragment } from 'react'
 
 import Home from './pages/Home'
 import About from './pages/About'
 import ErrorPage from './pages/Error'
 import Location from './pages/Location'
+import Header from './components/Header'
+import Footer from './components/Footer'
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path='*' element={<ErrorPage />} errorElement={<ErrorPage />} />
+      <Route  path='*' element={<ErrorPage />} errorElement={<ErrorPage />} />
+ 
       <Route
         path='/'
         element={<Home />}
@@ -31,7 +37,30 @@ const router = createBrowserRouter(
         loader={accomodationLoader}
       />
       <Route path='/about' element={<About />} errorElement={<ErrorPage />} />
+
     </>
+    // ====================================================================/
+    // <>
+    //   <Route
+    //     path='*'
+    //     element={<ErrorPage />}
+    //     // errorElement={<ErrorPage />}
+    //   />
+    //   <Route
+    //     path='/'
+    //     element={<Home />}
+    //     errorElement={<ErrorPage />}
+    //     loader={rootLoader}
+    //   >
+    //     <Route
+    //       path='accomodation/:id'
+    //       element={<Location />}
+    //       errorElement={<ErrorPage />}
+    //       loader={accomodationLoader}
+    //     />
+    //   </Route>
+    //   <Route path='/about' element={<About />} errorElement={<ErrorPage />} />
+    // </>
   )
 )
 

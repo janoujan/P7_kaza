@@ -123,12 +123,19 @@ const CardCaption = styled.figcaption`
 `
 
 export default function Card({ location }) {
+const [children, setChildren] = useState(false)
+
 if(!location) return <SpinLoader />
+
+
+function handleClick() {
+  setChildren(true)
+}
 
   return (
     <>
       <CardList key={location.id}>
-        <NavLink to={`/accomodation/${location.id}`}>
+        <NavLink to={`accomodation/${location.id}`} onClick={() => handleClick()} >
           <CardFigure>
             <CardImage src={location.cover} alt={location.title} />
             <CardCaption>{location.title}</CardCaption>

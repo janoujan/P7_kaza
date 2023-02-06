@@ -80,7 +80,8 @@ const Article = styled.article`
   width: -webkit-fill-available; ;
 `
 async function getAccomodation(id) {
-  const response = await fetch('logements.json')
+  const response = await fetch('http://localhost:3000/logements.json')
+  console.log('Location logement.json', response)
   const accomodations = await response.json()
 
   const accomodation = accomodations.find(

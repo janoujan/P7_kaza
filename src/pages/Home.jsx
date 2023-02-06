@@ -12,17 +12,24 @@ import { useFetch } from '../utils/hooks'
 import React, { useState, useEffect } from 'react'
 
 export async function loader() {
-  const response =  await fetch('logements.json')
-  const data =  await response.json()
 
-  if (!data) return <SpinLoader />
+  try  {
+    const response = await fetch('http://localhost:3000/logements.json')
+    console.info('response', response)
+    const data = await response.json()
 
-  return  { data }
+    if (!data) return <SpinLoader />
+
+    return  { data }
+  } catch (error) {
+    console.error('oups', error)
+    return {}
+  }
 }
 
 export default function Home() {
   const data = useLoaderData()
-  console.log('Home/data=====>', data)
+ 
   // ===========================================
   // ^^^^^^^^try using loader ^^^^^^^^^^^^
 
@@ -47,10 +54,11 @@ export default function Home() {
   // console.log('====data====', data)
   // console.log('====dataLoading====', dataLoading)
 
-  // if (!data) return
+   if (!data) return
 
   return (
     <>
+      <Outlet />
       <Header />
       <Banner
         image={BannerImg}
