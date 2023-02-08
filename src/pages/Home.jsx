@@ -1,60 +1,83 @@
+import { useLoaderData, json, Outlet } from 'react-router-dom'
+import ErrorPage from './Error'
+import { useFetch } from '../utils/hooks'
+import React, { useState, useEffect } from 'react'
+
 import Header from '../components/Header'
 import Banner from '../components/Banner'
 import BannerImg from '../assets/homeBanner.jpg'
 import Gallery from '../components/Gallery'
 import Footer from '../components/Footer'
 import SpinLoader from '../components/SpinLoader'
-import Location from './Location'
 
-import { useLoaderData, Await, defer, json, Outlet } from 'react-router-dom'
-import ErrorPage from './Error'
-import { useFetch } from '../utils/hooks'
-import React, { useState, useEffect } from 'react'
-
-export async function loader() {
-
-  try  {
+async function GetAllAccomodation() {
+  const [data, setData] = useState([])
+  const [dataLoading, setDataLoading] = useState(false)
+  try {
+    setDataLoading(true)
     const response = await fetch('http://localhost:3000/logements.json')
     console.info('response', response)
-    const data = await response.json()
-
-    if (!data) return <SpinLoader />
-
-    return  { data }
+    const { data } = await response.json()
+    setData(data)
+    return { data }
   } catch (error) {
-    console.error('oups', error)
-    return {}
+    console.error(error)
+  } finally {
+    setDataLoading(false)
+    setData(data)
   }
 }
 
+export async function loader() {
+  // no problem here cause i don't use any hook
+
+  // try {
+  //   const response = await fetch('http://localhost:3000/logements.json')
+  //   console.info('response', response)
+  //   const data = await response.json()
+
+  //   if (!data) return <ErrorPage />
+
+  //   return { data }
+  // } catch (error) {
+  //   console.error(error)
+  //   return {}
+  // }
+  // return GetAllAccomodation()
+}
+
 export default function Home() {
-  const data = useLoaderData()
- 
   // ===========================================
-  // ^^^^^^^^try using loader ^^^^^^^^^^^^
+  //  const [data, setData] = useState([])
+  //  const [dataLoading, setDataLoading] = useState(false)
+  // ^^^^^^^^try using loader ^^^^^^^^^^^^still work cause no hooks in loader
 
-  // const {data} = useFetch('logements.json')
-  // ============================================
-  // ^^^^^^^^^^^try with homemade hook^^^^^^^^^^
+  const [data, setData] = useState([])
+  const [dataLoading, setDataLoading] = useState(false)
 
-  // const [data, setData] = useState([])
-  // const [dataLoading, setDataLoading] = useState(false)
+  useEffect(() => {
+    async function fetchAllAccomodation() {
+      // we set the spinloader on until the fetch is resolved
+      setDataLoading(true)
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     setDataLoading(true)
-  //     const response = await fetch('logements.json')
-  //     const data = await response.json()
-  //     setData(data)
-  //   }
+      // fetching and parsing data, finally stop Spinloader
+      try {
+        const response = await fetch('http://localhost:3000/logements.json')
+        const data = await response.json()
+        // in case our catch{} is not triggered...anything can happen 😆🤣😅
+        return !data ? <ErrorPage /> : setData(data)
+      } catch (error) {
+        console.error(error)
+      } finally {
+        setDataLoading(false)
+      }
+    }
+    // we triggering our precedent function
+    fetchAllAccomodation()
+  }, [])
 
-  //   fetchData()
-  // }, [])
-
-  // console.log('====data====', data)
-  // console.log('====dataLoading====', dataLoading)
-
-   if (!data) return
+  // we triggering the spinloader during the request traitment
+  while (dataLoading === true) return <SpinLoader />
 
   return (
     <>

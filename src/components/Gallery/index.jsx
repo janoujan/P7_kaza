@@ -5,6 +5,7 @@ import React from 'react'
 
 import Card from '../Card'
 import SpinLoader from '../SpinLoader'
+import ErrorPage from '../../pages/Error'
 
 const GalleryContainer = styled.div`
   position: relative;
@@ -39,13 +40,13 @@ const GalleryUl = styled.ul`
 
 export default function Gallery({ data }) {
   
- if (!data) return <SpinLoader />
-
+ if (!data) return <ErrorPage />
+ 
   return (
     <GalleryContainer>
       {
         <GalleryUl>
-          {data.data.map((accomodation) => (
+          {data.map((accomodation) => (
             <Card key={accomodation.id} location={accomodation} />
           ))}
         </GalleryUl>
