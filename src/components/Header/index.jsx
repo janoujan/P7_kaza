@@ -52,6 +52,9 @@ const StyledLink = styled(NavLink)`
   font-weight: 500;
   font-size: 24px;
   line-height: 142.6%;
+  &.active {
+    text-decoration: underline;
+}
 
   @media screen and (max-width: 768px) {
     font-size: min(max(0.5rem, 4vw), 24px);
@@ -60,8 +63,7 @@ const StyledLink = styled(NavLink)`
     margin: 0px;
   }
   &:hover,
-  &:focus,
-  &:active {
+  &:focus {
     text-decoration: underline;
   }
 `
@@ -87,10 +89,24 @@ export default function Header() {
       </Link>
       <HeaderNav>
         <NavList>
-          <StyledLink to={`/`}>Accueil</StyledLink>
+          <StyledLink
+            to={`/`}
+            className={({ isActive }) =>
+              isActive ? 'active' : ''
+            }
+          >
+            Accueil
+          </StyledLink>
         </NavList>
         <NavList>
-          <StyledLink to={`/about`}>APropos</StyledLink>
+          <StyledLink
+            to={`/about`}
+            className={({ isActive }) =>
+              isActive ? 'active' : ''
+            }
+          >
+            APropos
+          </StyledLink>
         </NavList>
       </HeaderNav>
     </HeaderContainer>
