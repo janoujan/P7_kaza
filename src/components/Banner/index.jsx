@@ -65,6 +65,7 @@ export default function Banner({ image, alt, text1, text2 }) {
       <BannerImage src={image} alt={alt} />
       <BannerText>
         {text1}
+        {/* here we force the text to split where we want */}
         <Break></Break>
         {text2}
       </BannerText>

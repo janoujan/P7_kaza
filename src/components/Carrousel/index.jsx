@@ -23,29 +23,17 @@ const CarrouselContainer = styled.div`
     top: 20px;
   }
 `
+
 const ArrowPrevious = styled.img`
   position: absolute;
   margin-left: 3%;
   left: 0%;
 `
 
-const ButtonPrevious = styled.button`
-  position: absolute;
-  left: 3%;
-  display: flex;
-  align-items: center;
-`
-
 const ArrowNext = styled.img`
   margin-right: 3%;
   position: absolute;
   right: 5%;
-`
-const ButtonNext = styled.button`
-  position: absolute;
-  right: 5%;
-  display: flex;
-  align-items: center;
 `
 
 const CarrouselFigure = styled.figure`
@@ -57,6 +45,7 @@ const CarrouselFigure = styled.figure`
   justify-content: space-between;
   align-items: center;
 `
+
 const CarrouselImage = styled.img`
   width: 100%;
   height: 100%;
@@ -65,20 +54,31 @@ const CarrouselImage = styled.img`
 `
 
 export default function Carrousel({ accomodation }) {
-
   const [activeIndex, setActiveIndex] = useState(0)
 
+  /**
+   * a function to handle button click
+   * @param {Number} activeIndex
+   * @returns  either activeIndex -1 or go back to lastIndex
+   */
   const toPrevious = (activeIndex) => {
     const lastIndex = accomodation.pictures.length - 1
     return activeIndex < 1 ? lastIndex : activeIndex - 1
   }
 
+  /**
+   * a function to handle button click
+   * @param {Number} activeIndex
+   * @returns  either activeIndex + 1 or go back to firstIndex
+   */
   const toNext = (activeIndex) => {
     const lastIndex = accomodation.pictures.length - 1
     return activeIndex < lastIndex ? activeIndex + 1 : 0
   }
-  
-  return (accomodation.pictures.length === 1 ? (
+
+// if there is only one picture in picture's array, 
+// navigation arrows are no longer needed so we use ternary condition 
+  return accomodation.pictures.length === 1 ? (
     <CarrouselContainer>
       <CarrouselFigure>
         <CarrouselImage
@@ -94,21 +94,17 @@ export default function Carrousel({ accomodation }) {
           src={accomodation.pictures[activeIndex]}
           alt={accomodation.title}
         />
-        <ButtonPrevious>
-          <ArrowPrevious
-            src={arrowPrevious}
-            alt="arrow to previous picture"
-            onClick={() => setActiveIndex(toPrevious(activeIndex))}
-          />
-        </ButtonPrevious>
-        <ButtonNext>
-          <ArrowNext
-            src={arrowNext}
-            alt="arrow to next picture"
-            onClick={() => setActiveIndex(toNext(activeIndex))}
-          />
-        </ButtonNext>
+        <ArrowPrevious
+          src={arrowPrevious}
+          alt="arrow to previous picture"
+          onClick={() => setActiveIndex(toPrevious(activeIndex))}
+        />
+        <ArrowNext
+          src={arrowNext}
+          alt="arrow to next picture"
+          onClick={() => setActiveIndex(toNext(activeIndex))}
+        />
       </CarrouselFigure>
     </CarrouselContainer>
-  ))
+  )
 }

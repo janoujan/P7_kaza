@@ -71,6 +71,7 @@ const Arrow = styled.img`
 export default function Collapse({ title, text }) {
   const [isOpen, setIsOpen] = useState(false)
 
+// onClick we change the state and we display relative content
   return (
     <>
       <Button onClick={() => setIsOpen(!isOpen)}>

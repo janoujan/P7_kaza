@@ -32,6 +32,7 @@ export default function Rate({ accomodation }) {
   const ratings = [1, 2, 3, 4, 5]
   return (
     <StarContainer>
+      {/* here we map our array rating and we compare it to the accomodation rating in a ternary to display the right amount of star */}
       {ratings.map((rating, index) => {
         return accomodation.rating >= rating ? (
           <Star key={index} src={fullStar} alt="full star" />

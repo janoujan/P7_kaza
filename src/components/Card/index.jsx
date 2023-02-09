@@ -1,18 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import {
-  NavLink,
-  Await,
-  useAsyncValue,
-  json,
-  Navigate,
-  Link,
-  Outlet,
-} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import colors from '../../utils/style/colors'
 import fontFamily from '../../utils/style/fontFamily'
-
-import SpinLoader from '../SpinLoader'
 
 const glowing = keyframes`
    0% {
@@ -111,6 +101,7 @@ const CardImage = styled.img`
   object-position: center;
   border-radius: 10px;
 `
+
 const CardCaption = styled.figcaption`
   position: absolute;
   font-weight: 500;
@@ -123,19 +114,10 @@ const CardCaption = styled.figcaption`
 `
 
 export default function Card({ location }) {
-const [children, setChildren] = useState(false)
-
-if(!location) return <SpinLoader />
-
-
-function handleClick() {
-  setChildren(true)
-}
-
   return (
     <>
       <CardList key={location.id}>
-        <NavLink to={`accomodation/${location.id}`} onClick={() => handleClick()} >
+        <NavLink to={`/accomodation/${location.id}`}>
           <CardFigure>
             <CardImage src={location.cover} alt={location.title} />
             <CardCaption>{location.title}</CardCaption>

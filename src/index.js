@@ -4,11 +4,8 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
-  RouterProvider,
+  RouterProvider
 } from 'react-router-dom'
-import { loader as rootLoader } from './pages/Home'
-import { loader as accomodationLoader } from './pages/Location'
-import { Fragment } from 'react'
 
 import Home from './pages/Home'
 import About from './pages/About'
@@ -20,17 +17,11 @@ const router = createBrowserRouter(
     <>
       <Route path='*' element={<ErrorPage />} errorElement={<ErrorPage />} />
 
-      <Route
-        path='/'
-        element={<Home />}
-        errorElement={<ErrorPage />}
-        // loader={rootLoader}
-      />
+      <Route path='/' element={<Home />} errorElement={<ErrorPage />} />
       <Route
         path='/accomodation/:id'
         element={<Location />}
         errorElement={<ErrorPage />}
-        loader={accomodationLoader}
       />
       <Route path='/about' element={<About />} errorElement={<ErrorPage />} />
     </>
@@ -42,30 +33,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <RouterProvider router={router} />
   </React.StrictMode>
 )
-// ===================================================
-//  [
-// {
-//   path: '/*',
-//   element: <ErrorPage />,
-//   errorElement: <ErrorPage />
-// },
-// {
-//   path: '/',
-//   element: <Home />,
-//   errorElement: <ErrorPage />,
-//   loader: rootLoader
-// },
-// {
-//   path: '/about',
-//   element: <About />,
-//   errorElement: <ErrorPage />
-// },
-// {
-//   path: '/location/:id',
-//   element: <Location />,
-//   errorElement: <ErrorPage />,
-//   loader: accomodationLoader
-// }
-// ]
-// ^^^^^^^^^^^^try with object syntax^^^^it works !!!
-// =======================================

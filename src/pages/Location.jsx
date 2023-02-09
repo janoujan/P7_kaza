@@ -1,4 +1,4 @@
-import { useParams, useLoaderData, Outlet } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
 import Header from '../components/Header'
@@ -10,7 +10,8 @@ import Rate from '../components/Rate'
 import Collapse from '../components/Collapse'
 import Footer from '../components/Footer'
 import ErrorPage from './Error'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import SpinLoader from '../components/SpinLoader'
 
 const Section1 = styled.section`
   display: flex;
@@ -80,42 +81,49 @@ const Article = styled.article`
   width: -moz-available;
   width: -webkit-fill-available; ;
 `
-async function getAccomodation(id) {
-  try {
-    // we fetch and parse data
-    const response = await fetch('http://localhost:3000/logements.json')
-    const accomodations = await response.json()
-    // we find accomodation coresponding to params.id passed as id argument
-    const accomodation = accomodations.find(
-      (accomodation) => accomodation.id === id
-    )
-    return accomodation
-  } catch (error) {
-    console.log(error)
-    return <ErrorPage />
-  } finally {
-  }
-}
-
-// our loader using precedent function to fetch, parse, and compare params.id and logements.id
-export async function loader({ params }) {
-  return getAccomodation(params.id)
-}
 
 export default function Location() {
+  const [dataLoading, setDataLoading] = useState(true)
+  const [accomodation, setAccomodation] = useState([])
   const params = useParams()
-  const accomodation = useLoaderData()
 
-  // in case data didn't load yet ...
-  // we don't want to block this runtime
-  // so return empty
+  useEffect(() => {
+    async function fetchAccomodation() {
+      setDataLoading(true)
 
-  if (!accomodation) return
+      try {
+        const response = await fetch('http://localhost:3000/logements.json')
+        const accomodations = await response.json()
+        
+        // we use find() to get the accomodation corresponding to url params.id
+        const accomodation = accomodations.find(
+          (accomodation) => accomodation.id === params.id
+        )
+        
+        return setAccomodation(accomodation)
+       
+      } 
+      catch (error) {
+        console.error(error)
+        return <ErrorPage />
+      } 
+      finally {
+        setDataLoading(false)
+      }
+    }
+      
+    // we trigger our precedent function
+    fetchAccomodation()
+  }, [params])
 
-  // add usefull verification
-  if (accomodation.id !== params.id) return <ErrorPage />
-
-  return (
+  // in case the url change or some user try to hack url params
+  if (!accomodation) return <ErrorPage />
+  else if (dataLoading === false && accomodation.id !== params.id) return < ErrorPage /> 
+  
+  // we triggering the spinloader during the request traitment
+  return dataLoading === true ? (
+    <SpinLoader />
+  ) : (
     <>
       <Header />
       <Carrousel accomodation={accomodation} />

@@ -15,12 +15,19 @@ const FooterContainer = styled.div`
   align-items: center;
 `
 
+const LogoLink = styled(NavLink)`
+  transition: transform 0.25s ease-in-out;
+  &:hover {
+    transform: scale(1.2);
+  }
+`
+
 export default function Footer() {
   return (
     <FooterContainer>
-      <NavLink to={`/`}>
+      <LogoLink to={`/`}>
         <img src={logo} alt="logo" />
-      </NavLink>
+      </LogoLink>
       <p>© 2020 Kasa. All rights reserved</p>
     </FooterContainer>
   )

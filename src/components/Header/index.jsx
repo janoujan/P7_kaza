@@ -15,6 +15,7 @@ const HeaderContainer = styled.div`
     margin-left: 25px;
   }
 `
+
 const HeaderNav = styled.nav`
   position: relative;
   display: flex;
@@ -64,6 +65,7 @@ const StyledLink = styled(NavLink)`
     text-decoration: underline;
   }
 `
+
 const NavList = styled.li`
   position: relative;
   display: flex;
@@ -78,15 +80,14 @@ const NavList = styled.li`
 `
 
 export default function Header() {
-  
   return (
     <HeaderContainer>
-      <Link to={`/`} >
+      <Link to={`/`}>
         <HeaderLogo src={logo} alt="logo" />
       </Link>
       <HeaderNav>
         <NavList>
-          <StyledLink to={`/`} >Accueil</StyledLink>
+          <StyledLink to={`/`}>Accueil</StyledLink>
         </NavList>
         <NavList>
           <StyledLink to={`/about`}>APropos</StyledLink>
