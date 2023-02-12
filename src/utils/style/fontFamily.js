@@ -1,5 +1,5 @@
 const fontFamily = {
-  fontFamily: 'Montserrat'
+  fontFamily: 'Montserrat, arial, verdana'
 }
 
 export default fontFamily

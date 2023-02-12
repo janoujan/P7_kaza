@@ -77,7 +77,7 @@ export default function Carrousel({ accomodation }) {
   }
 
 // if there is only one picture in picture's array, 
-// navigation arrows are no longer needed so we use ternary condition 
+// navigation arrows are no longer needed so we use a ternary condition 
   return accomodation.pictures.length === 1 ? (
     <CarrouselContainer>
       <CarrouselFigure>
