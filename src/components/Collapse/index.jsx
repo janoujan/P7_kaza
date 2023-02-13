@@ -10,6 +10,7 @@ const Button = styled.div`
   justify-content: space-between;
   padding-inline: 3%;
   margin-bottom: 40px;
+  margin-left: 20px;
   height: 50px;
   border-radius: 5px;
   background-color: ${colors.primary};
@@ -35,12 +36,13 @@ const Title = styled.h2`
 
 const Text = styled.p`
   margin-top: -40px;
+  margin-left: 20px;
   padding: 20px;
   padding-left: 5%;
   border-radius: 5px;
   font-family: ${fontFamily.fontFamily};
   font-weight: 400;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 34px;
   color: ${colors.primary};
   background-color: ${colors.secondary};

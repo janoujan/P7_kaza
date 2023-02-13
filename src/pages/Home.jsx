@@ -48,7 +48,7 @@ export default function Home() {
         image={BannerImg}
         alt={'a coastal landscape'}
         text1={'Chez vous,'}
-        text2={'partout et ailleurs'}
+        text2={' partout et ailleurs'}
       />
       <Gallery data={data} />
       <Footer />

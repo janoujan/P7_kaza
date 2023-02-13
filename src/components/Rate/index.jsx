@@ -8,8 +8,9 @@ const StarContainer = styled.div`
   justify-content: flex-end;
   position: relative;
 
+
   @media screen and (max-width: 768px) {
-    top: 40px;
+    top: 20px;
     margin-left: 25px;
   }
 

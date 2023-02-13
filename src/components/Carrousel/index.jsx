@@ -6,10 +6,10 @@ import arrowNext from '../../assets/arrowNext.svg'
 
 const CarrouselContainer = styled.div`
   position: relative;
-  top: 70px;
-  height: 415px;
+  top: 20px;
+  height: 425px;
   width: 93%;
-  margin-left: 40px;
+  margin-left: 60px;
   border-radius: 25px;
   background: #000000;
   mix-blend-mode: darken;
@@ -17,10 +17,11 @@ const CarrouselContainer = styled.div`
 
   @media screen and (max-width: 768px) {
     width: -webkit-fill-available;
-    margin-left: 25px;
     width: -moz-available;
+    height: 255px;
+    margin-left: 25px;
     margin-right: 1rem;
-    top: 20px;
+    top: 0;
   }
 `
 
@@ -28,12 +29,22 @@ const ArrowPrevious = styled.img`
   position: absolute;
   margin-left: 3%;
   left: 0%;
+ 
+@media screen and (max-width: 768px) {
+  width: 15px;
+  height: 25px;
+}
 `
 
 const ArrowNext = styled.img`
   margin-right: 3%;
   position: absolute;
   right: 5%;
+
+  @media screen and (max-width: 768px) {
+    width: 15px;
+    height: 25px;
+  }
 `
 
 const CarrouselFigure = styled.figure`

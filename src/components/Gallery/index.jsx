@@ -7,7 +7,7 @@ import Card from '../Card'
 const GalleryContainer = styled.div`
   position: relative;
   width: 93%;
-  margin-left: 20px;
+  margin-left: 60px;
   height: fit-content;
   top: 70px;
   background-color: ${colors.secondary};
@@ -15,6 +15,7 @@ const GalleryContainer = styled.div`
 
   @media screen and (max-width: 768px) {
     margin-top: 10px;
+    margin-left: 20px;
     background-color: ${colors.tertary};
   }
 `

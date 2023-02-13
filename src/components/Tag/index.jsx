@@ -4,7 +4,8 @@ import fontFamily from '../../utils/style/fontFamily'
 
 const TagContainer = styled.div`
   display: flex;
-  margin-left: 40px;
+  margin-left: 60px;
+  margin-top: -20px;
 
   @media screen and (max-width: 768px) {
     margin-left: 25px;

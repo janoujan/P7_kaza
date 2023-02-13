@@ -63,7 +63,8 @@ const CollapseContainer = styled.div`
   right: 0;
 
   @media screen and (max-width: 768px) {
-    width: 96%;
+    width: 100%;
+    margin-left: -25px;
   }
 
   @media screen and (min-width: 1440px) {

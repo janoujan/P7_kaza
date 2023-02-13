@@ -4,10 +4,12 @@ import fontFamily from '../../utils/style/fontFamily'
 
 const TitleContainer = styled.div`
   position: relative;
-  margin-left: 40px;
+  margin-left: 60px;
+  top: -40px;
 
   @media screen and (max-width: 768px) {
     margin-left: 25px;
+    top: -10px;
   }
 `
 
@@ -16,10 +18,15 @@ const LocationTitle = styled.h1`
   font-size: 2.2rem;
   font-weight: 500;
   line-height: 40px;
-  letter-spacing: 0em;
+  letter-spacing: 0;
   text-align: left;
   margin-bottom: 10px;
   color: ${colors.primary};
+
+  @media screen and (max-width: 768px) {
+    font-size: 22px;
+    line-height: 22px;
+  }
 `
 
 const LocationPlace = styled.h2`

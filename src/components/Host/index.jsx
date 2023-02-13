@@ -7,13 +7,14 @@ const HostContainer = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  top: -20px;
+  top: -40px;
   right: 0;
 
   @media screen and (max-width: 768px) {
     width: 100%;
     justify-content: flex-end;
     height: min-content;
+    top: -20px;
   }
 
   @media screen and (min-width: 1440px) {

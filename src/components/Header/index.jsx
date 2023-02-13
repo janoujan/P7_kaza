@@ -8,7 +8,7 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   height: 80px;
-  margin-left: 40px;
+  margin-left: 60px;
   width: 90%;
 
   @media screen and (max-width: 768px) {
@@ -105,7 +105,7 @@ export default function Header() {
               isActive ? 'active' : ''
             }
           >
-            APropos
+            A Propos
           </StyledLink>
         </NavList>
       </HeaderNav>
