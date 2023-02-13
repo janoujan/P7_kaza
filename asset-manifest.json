@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.js": "/static/js/main.a486325a.js",
-    "static/media/aboutBanner.jpg": "/static/media/aboutBanner.96ba68b2b24837424fa9.jpg",
-    "static/media/homeBanner.jpg": "/static/media/homeBanner.053687a54587bf187cfc.jpg",
-    "static/media/logo.svg": "/static/media/logo.a6101328193bb3191cbcb50c120ec0d1.svg",
-    "static/media/logoFooter.svg": "/static/media/logoFooter.879b500939b17c84a3f7a1633edae6bf.svg",
-    "index.html": "/index.html",
-    "static/media/dropdown_close.svg": "/static/media/dropdown_close.f2cfcc76f4ae2f55ee699fe243dba350.svg",
-    "static/media/arrowPrevious.svg": "/static/media/arrowPrevious.f114b3d36e56c8c217832ad98a63d472.svg",
-    "static/media/dropdown_open.svg": "/static/media/dropdown_open.b493ffa8d213273ee575457aae023b70.svg",
-    "static/media/arrowNext.svg": "/static/media/arrowNext.8d9545cb18f67cea4ffddb888aa4dcb0.svg",
-    "static/media/emptyStar.svg": "/static/media/emptyStar.7e4ba6032d7d80ecc30aa389973cef95.svg",
-    "static/media/fullStar.svg": "/static/media/fullStar.6430150c126a3adf92c132c52c9c7428.svg",
-    "main.a486325a.js.map": "/static/js/main.a486325a.js.map"
+    "main.js": "/P7_kaza/static/js/main.b397ff35.js",
+    "static/media/aboutBanner.jpg": "/P7_kaza/static/media/aboutBanner.96ba68b2b24837424fa9.jpg",
+    "static/media/homeBanner.jpg": "/P7_kaza/static/media/homeBanner.053687a54587bf187cfc.jpg",
+    "static/media/logo.svg": "/P7_kaza/static/media/logo.a6101328193bb3191cbcb50c120ec0d1.svg",
+    "static/media/logoFooter.svg": "/P7_kaza/static/media/logoFooter.879b500939b17c84a3f7a1633edae6bf.svg",
+    "index.html": "/P7_kaza/index.html",
+    "static/media/dropdown_close.svg": "/P7_kaza/static/media/dropdown_close.f2cfcc76f4ae2f55ee699fe243dba350.svg",
+    "static/media/arrowPrevious.svg": "/P7_kaza/static/media/arrowPrevious.f114b3d36e56c8c217832ad98a63d472.svg",
+    "static/media/dropdown_open.svg": "/P7_kaza/static/media/dropdown_open.b493ffa8d213273ee575457aae023b70.svg",
+    "static/media/arrowNext.svg": "/P7_kaza/static/media/arrowNext.8d9545cb18f67cea4ffddb888aa4dcb0.svg",
+    "static/media/emptyStar.svg": "/P7_kaza/static/media/emptyStar.7e4ba6032d7d80ecc30aa389973cef95.svg",
+    "static/media/fullStar.svg": "/P7_kaza/static/media/fullStar.6430150c126a3adf92c132c52c9c7428.svg",
+    "main.b397ff35.js.map": "/P7_kaza/static/js/main.b397ff35.js.map"
   },
   "entrypoints": [
-    "static/js/main.a486325a.js"
+    "static/js/main.b397ff35.js"
   ]
 }
