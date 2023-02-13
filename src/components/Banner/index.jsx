@@ -60,10 +60,10 @@ const Break = styled.br`
     display: initial;
   }
 `
-export default function Banner({ image, alt, text1, text2 }) {
+export default function Banner({ image, alt, text1, text2, srcSet }) {
   return (
     <BannerContainer>
-      <BannerImage src={image} alt={alt} />
+      <BannerImage src={image} alt={alt} srcSet={srcSet} />
       <BannerText>
         {text1}
         {/* here we force the text to split where we want */}

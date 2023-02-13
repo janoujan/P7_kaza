@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Header from '../components/Header'
 import Banner from '../components/Banner'
 import BannerImage from '../assets/aboutBanner.jpg'
+import BannerImageMobile from '../assets/aboutBannerMobile.jpg'
 import Collapse from '../components/Collapse'
 import Footer from '../components/Footer'
 
@@ -34,7 +35,12 @@ export default function About() {
     <>
       <Header />
       <BannerContainer>
-        <Banner image={BannerImage} alt={'a mountain landscape'} />
+        <Banner
+          srcSet={`${BannerImageMobile} 768w,
+                  ${BannerImage} 1200w`}
+          image={BannerImage}
+          alt={'a mountain landscape'}
+        />
       </BannerContainer>
       <CollapseContainer>
         <Collapse

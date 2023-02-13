@@ -35,6 +35,14 @@ const LinkToHome = styled(Link)`
   }
 `
 
+const Break = styled.br`
+  display: none;
+
+  @media screen and (max-width: 768px) {
+    display: initial;
+  }
+`
+
 export default function ErrorPage() {
   const error = useRouteError()
   console.error(error)
@@ -45,11 +53,9 @@ export default function ErrorPage() {
       <ErrorPageContainer>
         <ErrorPageTitle>404</ErrorPageTitle>
         <ErrorPageSubtitle>
-          Oups! La page que vous demandez n'existe pas.
+          Oups! La page que<Break></Break> vous demandez n'existe pas.
         </ErrorPageSubtitle>
-        <LinkToHome to={'/'} >
-          Retourner sur la page d'accueil
-        </LinkToHome>
+        <LinkToHome to={'/'}>Retourner sur la page d'accueil</LinkToHome>
         <p>
           <i>{error ? error.statusText || error.message : ''}</i>
         </p>
