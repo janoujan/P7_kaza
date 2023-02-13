@@ -53,7 +53,7 @@ const Section2 = styled.section`
     margin: 0;
     margin-bottom: -80px;
     flex-direction: column;
-    margin-left: 25px;
+    margin-left: 45px;
   }
 `
 
@@ -63,7 +63,7 @@ const CollapseContainer = styled.div`
   right: 0;
 
   @media screen and (max-width: 768px) {
-    width: 100%;
+    width: 104%;
     margin-left: -25px;
   }
 

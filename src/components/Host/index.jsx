@@ -14,7 +14,8 @@ const HostContainer = styled.div`
     width: 100%;
     justify-content: flex-end;
     height: min-content;
-    top: -20px;
+    top: -30px;
+    margin-right: 10px;
   }
 
   @media screen and (min-width: 1440px) {

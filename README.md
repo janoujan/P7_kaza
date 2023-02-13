@@ -1,9 +1,12 @@
 ### Openclassroom WebDev project 7
 
 ### Kaza : Create a real estate rental web application with React
-# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+used Style-component to keep styles in components for the ease to maintain and shareability (https://styled-components.com/docs)
+
+used react-router (https://reactrouter.com/en/main)
 
 ## Available Scripts
 
@@ -18,6 +21,8 @@ The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
 ### `yarn run build`
+
+Take care not to forget "homepage: / " in package.json if you don't deploy on root folder!
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -37,13 +42,14 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
+### `yarn run deploy`
+
+if you can't deploy on root folder don't forget to adapt "homepage: /" in package.json
+added gh-pages package (https://www.npmjs.com/package/gh-pages) to ease deploiement on Github
+
 ### Advanced Configuration
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
 ### `yarn run build` fails to minify
 

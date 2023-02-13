@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { useState } from 'react'
 import arrowPrevious from '../../assets/arrowPrevious.svg'
 import arrowNext from '../../assets/arrowNext.svg'
+import colors from '../../utils/style/colors'
+import fontFamily from '../../utils/style/fontFamily'
 
 const CarrouselContainer = styled.div`
   position: relative;
@@ -19,7 +21,7 @@ const CarrouselContainer = styled.div`
     width: -webkit-fill-available;
     width: -moz-available;
     height: 255px;
-    margin-left: 25px;
+    margin-left: 20px;
     margin-right: 1rem;
     top: 0;
   }
@@ -29,11 +31,11 @@ const ArrowPrevious = styled.img`
   position: absolute;
   margin-left: 3%;
   left: 0%;
- 
-@media screen and (max-width: 768px) {
-  width: 15px;
-  height: 25px;
-}
+
+  @media screen and (max-width: 768px) {
+    width: 15px;
+    height: 25px;
+  }
 `
 
 const ArrowNext = styled.img`
@@ -63,6 +65,20 @@ const CarrouselImage = styled.img`
   border-radius: 25px;
   object-fit: cover;
 `
+const CarrouselPosition = styled.div`
+  color: ${colors.tertary};
+  position: absolute;
+  width: 45px;
+  left: 47%;
+  bottom: 5%;
+  font-family: ${fontFamily.fontFamily};
+  font-size: 20px;
+  font-weight: 700;
+
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
+`
 
 export default function Carrousel({ accomodation }) {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -87,8 +103,8 @@ export default function Carrousel({ accomodation }) {
     return activeIndex < lastIndex ? activeIndex + 1 : 0
   }
 
-// if there is only one picture in picture's array, 
-// navigation arrows are no longer needed so we use a ternary condition 
+  // if there is only one picture in picture's array,
+  // navigation arrows are no longer needed so we use a ternary condition
   return accomodation.pictures.length === 1 ? (
     <CarrouselContainer>
       <CarrouselFigure>
@@ -96,6 +112,9 @@ export default function Carrousel({ accomodation }) {
           src={accomodation.pictures[activeIndex]}
           alt={accomodation.title}
         />
+        <CarrouselPosition>
+          {activeIndex + 1} / {accomodation.pictures.length}
+        </CarrouselPosition>
       </CarrouselFigure>
     </CarrouselContainer>
   ) : (
@@ -110,6 +129,9 @@ export default function Carrousel({ accomodation }) {
           alt="arrow to previous picture"
           onClick={() => setActiveIndex(toPrevious(activeIndex))}
         />
+        <CarrouselPosition>
+          {activeIndex + 1} / {accomodation.pictures.length}
+        </CarrouselPosition>
         <ArrowNext
           src={arrowNext}
           alt="arrow to next picture"

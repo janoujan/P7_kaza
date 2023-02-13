@@ -12,7 +12,7 @@ const HeaderContainer = styled.div`
   width: 90%;
 
   @media screen and (max-width: 768px) {
-    margin-left: 25px;
+    margin-left: 20px;
   }
 `
 
@@ -54,13 +54,14 @@ const StyledLink = styled(NavLink)`
   line-height: 142.6%;
   &.active {
     text-decoration: underline;
-}
+  }
 
   @media screen and (max-width: 768px) {
-    font-size: min(max(0.5rem, 4vw), 24px);
+    font-size: min(max(0.5rem, 3.7vw), 18px);
     display: flex;
     justify-content: flex-start;
     margin: 0px;
+    text-transform: uppercase;
   }
   &:hover,
   &:focus {
@@ -95,7 +96,7 @@ export default function Header() {
               isActive ? 'active' : ''
             }
           >
-            Accueil
+            Acceuil
           </StyledLink>
         </NavList>
         <NavList>

@@ -15,7 +15,7 @@ const GalleryContainer = styled.div`
 
   @media screen and (max-width: 768px) {
     margin-top: 10px;
-    margin-left: 20px;
+    margin-left: 15px;
     background-color: ${colors.tertary};
   }
 `

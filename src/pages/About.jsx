@@ -6,7 +6,6 @@ import BannerImage from '../assets/aboutBanner.jpg'
 import Collapse from '../components/Collapse'
 import Footer from '../components/Footer'
 
-
 const CollapseContainer = styled.div`
   position: relative;
   width: 73%;
@@ -23,12 +22,20 @@ const CollapseContainer = styled.div`
     width: 93%;
   }
 `
+const BannerContainer = styled.div`
+  @media screen and (max-width: 768px) {
+    height: 225px;
+    margin-bottom: -30px;
+  }
+`
 
 export default function About() {
   return (
     <>
       <Header />
-      <Banner image={BannerImage} alt={'a mountain landscape'} />
+      <BannerContainer>
+        <Banner image={BannerImage} alt={'a mountain landscape'} />
+      </BannerContainer>
       <CollapseContainer>
         <Collapse
           title={'Fiabilité'}

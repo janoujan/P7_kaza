@@ -13,10 +13,11 @@ const BannerContainer = styled.div`
   border-radius: 25px;
 
   @media screen and (max-width: 768px) {
-    margin-left: 20px;
+    margin-left: 15px;
     margin-right: 10px;
-    height: 110px;
+    height: 100%;
     justify-content: left;
+    top: 0;
   }
 `
 

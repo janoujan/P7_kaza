@@ -8,7 +8,7 @@ const TitleContainer = styled.div`
   top: -40px;
 
   @media screen and (max-width: 768px) {
-    margin-left: 25px;
+    margin-left: 20px;
     top: -10px;
   }
 `

@@ -80,9 +80,9 @@ const CardFigure = styled.figure`
     }
   }
   @media screen and (max-width: 768px) {
-    margin: 0;
-    margin-bottom: 25px;
-    margin-right: 10px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    top: -40px;
     height: 255px;
     width: 100%;
     max-width: 98%;

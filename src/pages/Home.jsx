@@ -7,6 +7,13 @@ import BannerImg from '../assets/homeBanner.jpg'
 import Gallery from '../components/Gallery'
 import Footer from '../components/Footer'
 import SpinLoader from '../components/SpinLoader'
+import styled from 'styled-components'
+
+const BannerContainer = styled.div`
+  @media screen and (max-width: 768px) {
+    height: 115px;
+  }
+`
 
 export default function Home() {
   const [data, setData] = useState([])
@@ -24,12 +31,10 @@ export default function Home() {
 
         // in case our catch{} doesn't handle the error...just in case but tertary condition isn't necessary
         return !data ? <ErrorPage /> : setData(data)
-      } 
-      catch (error) {
+      } catch (error) {
         console.error(error)
         return <ErrorPage />
-      } 
-      finally {
+      } finally {
         setDataLoading(false)
       }
     }
@@ -44,12 +49,14 @@ export default function Home() {
   ) : (
     <>
       <Header />
-      <Banner
-        image={BannerImg}
-        alt={'a coastal landscape'}
-        text1={'Chez vous,'}
-        text2={' partout et ailleurs'}
-      />
+      <BannerContainer>
+        <Banner
+          image={BannerImg}
+          alt={'a coastal landscape'}
+          text1={'Chez vous,'}
+          text2={' partout et ailleurs'}
+        />
+      </BannerContainer>
       <Gallery data={data} />
       <Footer />
     </>

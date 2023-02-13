@@ -18,6 +18,8 @@ const Button = styled.div`
   @media screen and (max-width: 768px) {
     margin-bottom: 15px;
     width: -webkit-fill-available;
+    margin-left: 0;
+    margin-right: 10px;
   }
 `
 
@@ -32,6 +34,10 @@ const Title = styled.h2`
   font-size: 24px;
   line-height: 34px;
   color: ${colors.secondary};
+
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+  }
 `
 
 const Text = styled.p`
@@ -42,8 +48,8 @@ const Text = styled.p`
   border-radius: 5px;
   font-family: ${fontFamily.fontFamily};
   font-weight: 400;
-  font-size: 20px;
-  line-height: 34px;
+  font-size: 18px;
+  line-height: 25px;
   color: ${colors.primary};
   background-color: ${colors.secondary};
 
@@ -51,6 +57,10 @@ const Text = styled.p`
     position: relative;
     top: 25px;
     margin-block-end: 60px;
+    font-size: 16px;
+    line-height: 20px;
+    margin-left: 0;
+    margin-right: 10px;
   }
 `
 
@@ -68,12 +78,16 @@ const Arrow = styled.img`
   animation: ${flip} 0.3s ease-in-out;
   transform: ${({ isOpen }) => (isOpen ? 'rotate(360deg)' : 'rotate(0deg)')};
   transition: transform 0.3s ease-in-out;
+
+  @media screen and (max-width: 768px) {
+    width: 20px;
+  }
 `
 
 export default function Collapse({ title, text }) {
   const [isOpen, setIsOpen] = useState(false)
 
-// onClick we change the state and we display relative content
+  // onClick we change the state and we display relative content
   return (
     <>
       <Button onClick={() => setIsOpen(!isOpen)}>

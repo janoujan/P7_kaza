@@ -8,7 +8,7 @@ const TagContainer = styled.div`
   margin-top: -20px;
 
   @media screen and (max-width: 768px) {
-    margin-left: 25px;
+    margin-left: 20px;
     width: -webkit-fill-available;
     flex-wrap: wrap;
   }

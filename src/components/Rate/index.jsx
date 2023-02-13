@@ -11,7 +11,7 @@ const StarContainer = styled.div`
 
   @media screen and (max-width: 768px) {
     top: 20px;
-    margin-left: 25px;
+    margin-left: 20px;
   }
 
   @media screen and (min-width: 1440px) {
