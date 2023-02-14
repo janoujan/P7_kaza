@@ -74,7 +74,7 @@ const CollapseContainer = styled.div`
 `
 
 const EquipementsList = styled.li`
-  margin-bottom: 10px;
+  margin-bottom: 4px;
   list-style: none;
 `
 

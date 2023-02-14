@@ -29,6 +29,7 @@ const BannerImage = styled.img`
   border-radius: 25px;
   object-fit: cover;
   filter: brightness(70%);
+  object-position: center bottom;
 `
 
 const BannerText = styled.h1`

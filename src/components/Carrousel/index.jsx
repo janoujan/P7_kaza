@@ -64,11 +64,12 @@ const CarrouselImage = styled.img`
   height: 100%;
   border-radius: 25px;
   object-fit: cover;
+  object-position: center;
 `
 const CarrouselPosition = styled.div`
   color: ${colors.tertary};
   position: absolute;
-  width: 45px;
+  width: 50px;
   left: 47%;
   bottom: 5%;
   font-family: ${fontFamily.fontFamily};
