@@ -6,9 +6,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-used Style-component to keep styles in components for the ease to maintain and shareability (https://styled-components.com/docs)
+I used Style-component to keep styles in components for the ease to maintain and shareability (https://styled-components.com/docs)
 
-used react-router (https://reactrouter.com/en/main)
+ I also used react-router (https://reactrouter.com/en/main)
 
 ## Available Scripts
 
