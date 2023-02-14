@@ -1,3 +1,5 @@
+![alt text](./src/assets/logo.svg)
+
 ### Openclassroom WebDev project 7
 
 ### Kaza : Create a real estate rental web application with React
