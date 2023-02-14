@@ -50,6 +50,7 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 ### `yarn run deploy`
 
 if you can't deploy on root folder don't forget to adapt "homepage: /" in package.json
+
 added gh-pages package (https://www.npmjs.com/package/gh-pages) to ease deploiement on Github
 
 ### Advanced Configuration
