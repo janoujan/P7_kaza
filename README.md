@@ -1,14 +1,17 @@
 ![alt text](./src/assets/logo.svg)
 
 ### Openclassroom WebDev project 7
-
 ### Kaza : Create a real estate rental web application with React
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 I used Style-component to keep styles in components for the ease to maintain and shareability (https://styled-components.com/docs)
 
- I also used react-router (https://reactrouter.com/en/main)
+I also used react-router (https://reactrouter.com/en/main)
+
+#### Deployment
+
+you can see a deployement of the site at (https://p7kaza.netlify.app/) 
 
 ## Available Scripts
 
