@@ -9,10 +9,6 @@ I used Style-component to keep styles in components for the ease to maintain and
 
 I also used react-router (https://reactrouter.com/en/main)
 
-#### Deployment
-
-you can see a deployement of the site at (https://p7kaza.netlify.app/) 
-
 ## Available Scripts
 
 In the project directory, you can run:
