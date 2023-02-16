@@ -3,12 +3,14 @@ import logo from '../../assets/logo.svg'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 import fontFamily from '../../utils/style/fontFamily'
+import Flex from '../../utils/style/displayFlex'
+import MarginLeft from '../../utils/style/marginLeft'
 
 const HeaderContainer = styled.div`
-  display: flex;
+  ${Flex};
   justify-content: space-between;
   height: 80px;
-  margin-left: 60px;
+  margin-left: ${MarginLeft.desktop};
   width: 90%;
 
   @media screen and (max-width: 768px) {
@@ -18,7 +20,7 @@ const HeaderContainer = styled.div`
 
 const HeaderNav = styled.nav`
   position: relative;
-  display: flex;
+  ${Flex};
   justify-content: flex-end;
   align-items: center;
   margin: 0;
@@ -35,7 +37,7 @@ const HeaderLogo = styled.img`
   width: 180px;
   height: 80px;
   position: relative;
-  display: flex;
+  ${Flex};
   justify-content: flex-start;
 
   @media screen and (max-width: 768px) {
@@ -58,7 +60,7 @@ const StyledLink = styled(NavLink)`
 
   @media screen and (max-width: 768px) {
     font-size: min(max(0.5rem, 3.7vw), 18px);
-    display: flex;
+    ${Flex};
     justify-content: flex-start;
     margin: 0px;
     text-transform: uppercase;
@@ -71,7 +73,7 @@ const StyledLink = styled(NavLink)`
 
 const NavList = styled.li`
   position: relative;
-  display: flex;
+  ${Flex};
   justify-content: flex-end;
   align-items: center;
   margin: 20px;
@@ -92,9 +94,7 @@ export default function Header() {
         <NavList>
           <StyledLink
             to={`/`}
-            className={({ isActive }) =>
-              isActive ? 'active' : ''
-            }
+            className={({ isActive }) => (isActive ? 'active' : '')}
           >
             Acceuil
           </StyledLink>
@@ -102,9 +102,7 @@ export default function Header() {
         <NavList>
           <StyledLink
             to={`/about`}
-            className={({ isActive }) =>
-              isActive ? 'active' : ''
-            }
+            className={({ isActive }) => (isActive ? 'active' : '')}
           >
             A Propos
           </StyledLink>

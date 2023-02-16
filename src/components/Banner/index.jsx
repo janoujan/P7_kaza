@@ -1,19 +1,21 @@
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
+import Flex from '../../utils/style/displayFlex'
 import fontFamily from '../../utils/style/fontFamily'
+import MarginLeft from '../../utils/style/marginLeft'
 
 const BannerContainer = styled.div`
   position: relative;
-  display: flex;
+  ${Flex}
   justify-content: center;
   height: 223px;
   width: 93%;
-  margin-left: 60px;
+  margin-left: ${MarginLeft.desktop};
   top: 40px;
   border-radius: 25px;
 
   @media screen and (max-width: 768px) {
-    margin-left: 15px;
+    margin-left: ${MarginLeft.mobile};
     margin-right: 10px;
     height: 100%;
     justify-content: left;

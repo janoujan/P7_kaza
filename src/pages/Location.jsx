@@ -12,9 +12,10 @@ import Footer from '../components/Footer'
 import ErrorPage from './Error'
 import { useEffect, useState } from 'react'
 import SpinLoader from '../components/SpinLoader'
+import Flex from '../utils/style/displayFlex'
 
 const Section1 = styled.section`
-  display: flex;
+  ${Flex};
   justify-content: space-between;
   position: relative;
   top: 70px;
@@ -28,7 +29,7 @@ const Section1 = styled.section`
 const Aside = styled.aside`
   position: relative;
   margin-right: 3.5%;
-  display: flex;
+  ${Flex};
   flex-direction: column;
   justify-content: flex-end;
 
@@ -95,32 +96,30 @@ export default function Location() {
       try {
         const response = await fetch('http://localhost:3000/logements.json')
         const accomodations = await response.json()
-        
+
         // we use find() to get the accomodation corresponding to url params.id
         const accomodation = accomodations.find(
           (accomodation) => accomodation.id === params.id
         )
-        
+
         return setAccomodation(accomodation)
-       
-      } 
-      catch (error) {
+      } catch (error) {
         console.error(error)
         return <ErrorPage />
-      } 
-      finally {
+      } finally {
         setDataLoading(false)
       }
     }
-      
+
     // we trigger our precedent function
     fetchAccomodation()
   }, [params])
 
   // in case the url change or some user try to hack url params
   if (!accomodation) return <ErrorPage />
-  else if (dataLoading === false && accomodation.id !== params.id) return < ErrorPage /> 
-  
+  else if (dataLoading === false && accomodation.id !== params.id)
+    return <ErrorPage />
+
   // we triggering the spinloader during the request traitment
   return dataLoading === true ? (
     <SpinLoader />

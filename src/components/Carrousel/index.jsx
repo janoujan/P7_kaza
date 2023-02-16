@@ -5,13 +5,15 @@ import arrowPrevious from '../../assets/arrowPrevious.svg'
 import arrowNext from '../../assets/arrowNext.svg'
 import colors from '../../utils/style/colors'
 import fontFamily from '../../utils/style/fontFamily'
+import MarginLeft from '../../utils/style/marginLeft'
+import Flex from '../../utils/style/displayFlex'
 
 const CarrouselContainer = styled.div`
   position: relative;
   top: 20px;
   height: 425px;
   width: 93%;
-  margin-left: 60px;
+  margin-left: ${MarginLeft.desktop};
   border-radius: 25px;
   background: #000000;
   mix-blend-mode: darken;
@@ -54,7 +56,7 @@ const CarrouselFigure = styled.figure`
   height: 100%;
   margin: 0;
   border-radius: 25px;
-  display: flex;
+  ${Flex};
   justify-content: space-between;
   align-items: center;
 `

@@ -3,9 +3,10 @@ import styled from 'styled-components'
 import fontFamily from '../utils/style/fontFamily'
 
 import Header from '../components/Header'
+import Flex from '../utils/style/displayFlex'
 
 const ErrorPageContainer = styled.div`
-  display: flex;
+  ${Flex};
   flex-direction: column;
   align-items: center;
   color: #ff6060;

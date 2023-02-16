@@ -1,10 +1,12 @@
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
+import Flex from '../../utils/style/displayFlex'
 import fontFamily from '../../utils/style/fontFamily'
+import MarginLeft from '../../utils/style/marginLeft'
 
 const TagContainer = styled.div`
-  display: flex;
-  margin-left: 60px;
+  ${Flex};
+  margin-left: ${MarginLeft.desktop};
   margin-top: -20px;
 
   @media screen and (max-width: 768px) {

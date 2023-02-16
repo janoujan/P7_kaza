@@ -17,7 +17,6 @@ const glowing = keyframes`
         background-position: 0 0;
     }
 `
-
 const CardList = styled.li`
   list-style: none;
 
@@ -26,7 +25,6 @@ const CardList = styled.li`
     width: -webkit-fill-available;
   }
 `
-
 const CardFigure = styled.figure`
   max-width: 340px;
   height: 340px;
@@ -93,7 +91,6 @@ const CardFigure = styled.figure`
     }
   }
 `
-
 const CardImage = styled.img`
   width: 100%;
   height: 100%;
@@ -101,7 +98,6 @@ const CardImage = styled.img`
   object-position: center;
   border-radius: 10px;
 `
-
 const CardCaption = styled.figcaption`
   position: absolute;
   font-weight: 500;

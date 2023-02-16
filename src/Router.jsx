@@ -9,7 +9,6 @@ export const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path='*' element={<ErrorPage />} errorElement={<ErrorPage />} />
-
       <Route path='/' element={<Home />} errorElement={<ErrorPage />} />
       <Route
         path='/accomodation/:id'

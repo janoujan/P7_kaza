@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import logo from '../../assets/logoFooter.svg'
+import Flex from '../../utils/style/displayFlex'
 
 const FooterContainer = styled.div`
   position: relative;
@@ -9,7 +10,7 @@ const FooterContainer = styled.div`
   height: 210px;
   background-color: #000000;
   color: white;
-  display: flex;
+  ${Flex};
   flex-direction: column;
   justify-content: center;
   align-items: center;

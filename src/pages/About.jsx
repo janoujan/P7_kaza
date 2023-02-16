@@ -6,6 +6,7 @@ import BannerImage from '../assets/aboutBanner.jpg'
 import BannerImageMobile from '../assets/aboutBannerMobile.jpg'
 import Collapse from '../components/Collapse'
 import Footer from '../components/Footer'
+import Flex from '../utils/style/displayFlex'
 
 const CollapseContainer = styled.div`
   position: relative;
@@ -13,7 +14,7 @@ const CollapseContainer = styled.div`
   top: 70px;
   margin: auto;
   margin-bottom: -20px;
-  display: flex;
+  ${Flex};
   flex-direction: column;
   justify-content: space-between;
 

@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
+import Flex from '../../utils/style/displayFlex'
 import fontFamily from '../../utils/style/fontFamily'
 
 const HostContainer = styled.div`
-  display: flex;
+  ${Flex};
   justify-content: center;
   align-items: center;
   position: relative;

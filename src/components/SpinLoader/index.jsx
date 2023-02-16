@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 import colors from '../../utils/style/colors'
+import Flex from '../../utils/style/displayFlex'
 
 const spinloader = keyframes`
   to {
@@ -9,19 +10,19 @@ const spinloader = keyframes`
 
 const LoaderContainer = styled.div`
   position: absolute;
-  display: flex;
+  ${Flex};
   justify-content: center;
   align-items: center;
   top: 50%;
   left: 50%;
 
   @media screen and (max-width: 768px) {
-   left: 35%;
+    left: 35%;
   }
 `
 
 const Loader = styled.div`
-  display: flex;
+  ${Flex};
   height: 100px;
   width: 100px;
   border-radius: 50%;

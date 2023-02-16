@@ -3,10 +3,11 @@ import styled, { keyframes } from 'styled-components'
 import arrowDown from '../../assets/dropdown_close.svg'
 import arrowUp from '../../assets/dropdown_open.svg'
 import colors from '../../utils/style/colors'
+import Flex from '../../utils/style/displayFlex'
 import fontFamily from '../../utils/style/fontFamily'
 
 const Button = styled.div`
-  display: flex;
+  ${Flex};
   justify-content: space-between;
   padding-inline: 3%;
   margin-bottom: 40px;

@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 import fontFamily from '../../utils/style/fontFamily'
+import MarginLeft from '../../utils/style/marginLeft'
 
 const TitleContainer = styled.div`
   position: relative;
-  margin-left: 60px;
+  margin-left: ${MarginLeft.desktop};
   top: -40px;
 
   @media screen and (max-width: 768px) {

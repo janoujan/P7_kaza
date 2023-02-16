@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 import emptyStar from '../../assets/emptyStar.svg'
 import fullStar from '../../assets/fullStar.svg'
+import Flex from '../../utils/style/displayFlex'
 
 const StarContainer = styled.div`
-  display: flex;
+  ${Flex};
   flex-wrap: no-wrap;
   justify-content: flex-end;
   position: relative;
-
 
   @media screen and (max-width: 768px) {
     top: 20px;

@@ -3,11 +3,13 @@ import colors from '../../utils/style/colors'
 import React from 'react'
 
 import Card from '../Card'
+import MarginLeft from '../../utils/style/marginLeft'
+import Flex from '../../utils/style/displayFlex'
 
 const GalleryContainer = styled.div`
   position: relative;
   width: 93%;
-  margin-left: 60px;
+  margin-left: ${MarginLeft.desktop};
   height: fit-content;
   top: 70px;
   background-color: ${colors.secondary};
@@ -15,13 +17,13 @@ const GalleryContainer = styled.div`
 
   @media screen and (max-width: 768px) {
     margin-top: 10px;
-    margin-left: 15px;
+    margin-left: ${MarginLeft.mobile};
     background-color: ${colors.tertary};
   }
 `
 
 const GalleryUl = styled.ul`
-  display: flex;
+  ${Flex};
   flex-wrap: wrap;
   justify-content: space-around;
   background-color: ${colors.secondary};
@@ -39,7 +41,7 @@ export default function Gallery({ data }) {
   return (
     <GalleryContainer>
       <GalleryUl>
-         {/* here we map data to display accomodations */}
+        {/* here we map data to display accomodations */}
         {data.map((accomodation) => (
           <Card key={accomodation.id} location={accomodation} />
         ))}
